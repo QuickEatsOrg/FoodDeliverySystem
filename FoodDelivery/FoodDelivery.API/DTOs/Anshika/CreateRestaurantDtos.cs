@@ -1,9 +1,9 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace FoodDelivery.API.DTOs;
 
-public class RestaurantDto
+public class CreateRestaurantDto
 {
-    public int RestaurantId { get; set; }
-
     public string RestaurantName { get; set; }
 
     public string RestaurantAddress { get; set; }
@@ -11,4 +11,6 @@ public class RestaurantDto
     public string RestaurantPhone { get; set; }
 
     public string RestaurantEmail { get; set; }
+
+    public string Password { get; set; }
 }

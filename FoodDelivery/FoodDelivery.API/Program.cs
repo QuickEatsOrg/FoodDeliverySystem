@@ -92,6 +92,7 @@ builder.Services.AddScoped<JwtHelper>();
 
 builder.Services.AddScoped<IDriverRepository, DriverRepository>();
 builder.Services.AddScoped<IDeliveryRepository, DeliveryRepository>();
+// builder.Services.AddScoped<IMenuItemRepository, MenuItemRepository>();
 
 builder.Services.AddScoped<IDriverService, DriverService>();
 builder.Services.AddScoped<IDeliveryService, DeliveryService>();
@@ -104,6 +105,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 
 app.UseHttpsRedirection();
 

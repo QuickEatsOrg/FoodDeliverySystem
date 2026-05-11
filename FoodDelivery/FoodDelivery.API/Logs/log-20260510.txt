@@ -1,0 +1,448 @@
+2026-05-10 20:50:07.416 +05:30 [INF] User profile is available. Using 'C:\Users\sanja\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-10 20:50:07.957 +05:30 [INF] Now listening on: https://localhost:7292
+2026-05-10 20:50:07.959 +05:30 [INF] Now listening on: http://localhost:5139
+2026-05-10 20:50:08.104 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-10 20:50:08.106 +05:30 [INF] Hosting environment: Development
+2026-05-10 20:50:08.107 +05:30 [INF] Content root path: D:\Capstone\FoodDelivery\QuickEatsProj\FoodDeliverySystem\FoodDelivery\FoodDelivery.API
+2026-05-10 20:50:33.520 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/ - null null
+2026-05-10 20:50:33.729 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-10 20:50:33.855 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/ - 500 null text/html; charset=utf-8 349.3478ms
+2026-05-10 20:50:33.887 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-10 20:50:33.887 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/_vs/browserLink - null null
+2026-05-10 20:50:33.904 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/_framework/aspnetcore-browser-refresh.js - 200 14937 application/javascript; charset=utf-8 16.5651ms
+2026-05-10 20:50:33.977 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/_vs/browserLink - 200 null text/javascript; charset=UTF-8 89.4675ms
+2026-05-10 20:50:34.327 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/favicon.ico - null null
+2026-05-10 20:50:34.333 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-10 20:50:34.338 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/favicon.ico - 500 null text/plain; charset=utf-8 11.2233ms
+2026-05-10 20:50:38.447 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/index.html - null null
+2026-05-10 20:50:38.468 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-10 20:50:38.479 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/index.html - 500 null text/html; charset=utf-8 31.9034ms
+2026-05-10 20:50:40.082 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/index.html - null null
+2026-05-10 20:50:40.091 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-10 20:50:40.097 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/index.html - 500 null text/html; charset=utf-8 16.2546ms
+2026-05-10 20:50:40.165 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/_vs/browserLink - null null
+2026-05-10 20:50:40.183 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-10 20:50:40.194 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/_framework/aspnetcore-browser-refresh.js - 200 14937 application/javascript; charset=utf-8 10.9985ms
+2026-05-10 20:50:40.201 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.0837ms
+2026-05-10 20:50:40.733 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/favicon.ico - null null
+2026-05-10 20:50:40.739 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.GetService(IServiceProvider sp, Type type, Type middleware)
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-05-10 20:50:40.743 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/favicon.ico - 500 null text/plain; charset=utf-8 10.717ms
+2026-05-10 20:51:28.938 +05:30 [INF] User profile is available. Using 'C:\Users\sanja\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-10 20:51:29.282 +05:30 [INF] Now listening on: https://localhost:7292
+2026-05-10 20:51:29.284 +05:30 [INF] Now listening on: http://localhost:5139
+2026-05-10 20:51:29.656 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-10 20:51:29.658 +05:30 [INF] Hosting environment: Development
+2026-05-10 20:51:29.661 +05:30 [INF] Content root path: D:\Capstone\FoodDelivery\QuickEatsProj\FoodDeliverySystem\FoodDelivery\FoodDelivery.API
+2026-05-10 20:51:35.392 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/index.html - null null
+2026-05-10 20:51:35.680 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/index.html - 200 null text/html;charset=utf-8 302.4644ms
+2026-05-10 20:51:35.713 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/swagger-ui.css - null null
+2026-05-10 20:51:35.714 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/swagger-ui-bundle.js - null null
+2026-05-10 20:51:35.713 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-10 20:51:35.714 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/swagger-ui-standalone-preset.js - null null
+2026-05-10 20:51:35.713 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/index.css - null null
+2026-05-10 20:51:35.724 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/index.js - null null
+2026-05-10 20:51:35.775 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/_framework/aspnetcore-browser-refresh.js - 200 14937 application/javascript; charset=utf-8 62.2936ms
+2026-05-10 20:51:35.775 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/index.js - 304 null null 51.7464ms
+2026-05-10 20:51:35.782 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/index.css - 304 null null 69.369ms
+2026-05-10 20:51:35.782 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/swagger-ui-bundle.js - 304 null null 68.1628ms
+2026-05-10 20:51:35.782 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/swagger-ui-standalone-preset.js - 304 null null 68.2233ms
+2026-05-10 20:51:35.782 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/swagger-ui.css - 304 null null 69.3845ms
+2026-05-10 20:51:35.791 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/_vs/browserLink - null null
+2026-05-10 20:51:35.863 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/_vs/browserLink - 200 null text/javascript; charset=UTF-8 71.8563ms
+2026-05-10 20:51:36.137 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/v1/swagger.json - null null
+2026-05-10 20:51:36.160 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/favicon-32x32.png - null null
+2026-05-10 20:51:36.166 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.756ms
+2026-05-10 20:51:36.167 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/favicon-32x32.png - 304 null null 6.7992ms
+2026-05-10 20:52:20.799 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/Auth/login - application/json 85
+2026-05-10 20:52:22.722 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 20:52:22.764 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FoodDelivery.API.DTOs.Sanjana.LoginDto) on controller FoodDelivery.API.Controllers.Sanjana.AuthController (FoodDelivery.API).
+2026-05-10 20:52:27.048 +05:30 [INF] Executed DbCommand (222ms) [Parameters=[@__loginDto_Email_0='?' (Size = 255) (DbType = AnsiString), @__loginDto_Password_1='?' (Size = 255) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[customer_id], [c].[customer_email], [c].[customer_name], [c].[customer_phone], [c].[password]
+FROM [Customers] AS [c]
+WHERE [c].[customer_email] = @__loginDto_Email_0 AND [c].[password] = @__loginDto_Password_1
+2026-05-10 20:52:27.251 +05:30 [INF] Executing OkObjectResult, writing value of type 'FoodDelivery.API.DTOs.Sanjana.AuthResponseDto'.
+2026-05-10 20:52:27.264 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API) in 4492.2792ms
+2026-05-10 20:52:27.266 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 20:52:27.277 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/Auth/login - 200 null application/json; charset=utf-8 6477.5435ms
+2026-05-10 20:55:31.202 +05:30 [INF] User profile is available. Using 'C:\Users\sanja\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-10 20:55:31.575 +05:30 [INF] Now listening on: https://localhost:7292
+2026-05-10 20:55:31.578 +05:30 [INF] Now listening on: http://localhost:5139
+2026-05-10 20:55:31.700 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-10 20:55:31.703 +05:30 [INF] Hosting environment: Development
+2026-05-10 20:55:31.704 +05:30 [INF] Content root path: D:\Capstone\FoodDelivery\QuickEatsProj\FoodDeliverySystem\FoodDelivery\FoodDelivery.API
+2026-05-10 20:55:59.907 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/index.html - null null
+2026-05-10 20:56:00.172 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/index.html - 304 null null 279.6834ms
+2026-05-10 20:56:00.224 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/index.css - null null
+2026-05-10 20:56:00.229 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/swagger-ui-bundle.js - null null
+2026-05-10 20:56:00.224 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/swagger-ui.css - null null
+2026-05-10 20:56:00.224 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/_framework/aspnetcore-browser-refresh.js - null null
+2026-05-10 20:56:00.225 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/index.js - null null
+2026-05-10 20:56:00.238 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/swagger-ui-standalone-preset.js - null null
+2026-05-10 20:56:00.302 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/swagger-ui.css - 304 null null 78.3169ms
+2026-05-10 20:56:00.305 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/swagger-ui-bundle.js - 304 null null 79.3907ms
+2026-05-10 20:56:00.305 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/index.css - 304 null null 78.2432ms
+2026-05-10 20:56:00.293 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/index.js - 304 null null 68.5111ms
+2026-05-10 20:56:00.314 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/swagger-ui-standalone-preset.js - 304 null null 76.7494ms
+2026-05-10 20:56:00.255 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/_vs/browserLink - null null
+2026-05-10 20:56:00.318 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/_framework/aspnetcore-browser-refresh.js - 200 14937 application/javascript; charset=utf-8 94.3962ms
+2026-05-10 20:56:00.402 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/_vs/browserLink - 200 null text/javascript; charset=UTF-8 147.6022ms
+2026-05-10 20:56:00.660 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/v1/swagger.json - null null
+2026-05-10 20:56:00.668 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/swagger/favicon-32x32.png - null null
+2026-05-10 20:56:00.674 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/favicon-32x32.png - 304 null null 5.691ms
+2026-05-10 20:56:00.688 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 29.4823ms
+2026-05-10 20:56:13.717 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/Auth/login - application/json 87
+2026-05-10 20:56:13.844 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 20:56:13.882 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FoodDelivery.API.DTOs.Sanjana.LoginDto) on controller FoodDelivery.API.Controllers.Sanjana.AuthController (FoodDelivery.API).
+2026-05-10 20:56:14.358 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-05-10 20:56:14.400 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API) in 510.3685ms
+2026-05-10 20:56:14.403 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 20:56:14.407 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/Auth/login - 400 null application/problem+json; charset=utf-8 690.5781ms
+2026-05-10 20:56:23.049 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/Auth/login - application/json 86
+2026-05-10 20:56:23.059 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 20:56:23.062 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FoodDelivery.API.DTOs.Sanjana.LoginDto) on controller FoodDelivery.API.Controllers.Sanjana.AuthController (FoodDelivery.API).
+2026-05-10 20:56:25.129 +05:30 [INF] Executed DbCommand (81ms) [Parameters=[@__loginDto_Email_0='?' (Size = 255) (DbType = AnsiString), @__loginDto_Password_1='?' (Size = 255) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[customer_id], [c].[customer_email], [c].[customer_name], [c].[customer_phone], [c].[password]
+FROM [Customers] AS [c]
+WHERE [c].[customer_email] = @__loginDto_Email_0 AND [c].[password] = @__loginDto_Password_1
+2026-05-10 20:56:25.317 +05:30 [INF] Executing OkObjectResult, writing value of type 'FoodDelivery.API.DTOs.Sanjana.AuthResponseDto'.
+2026-05-10 20:56:25.322 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API) in 2257.6043ms
+2026-05-10 20:56:25.327 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 20:56:25.337 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/Auth/login - 200 null application/json; charset=utf-8 2288.045ms
+2026-05-10 20:58:18.234 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/api/customer - null null
+2026-05-10 20:58:18.261 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenMalformedException: IDX14100: JWT is not well formed, there are no dots (.).
+The token needs to be in JWS or JWE Compact Serialization Format. (JWS): 'EncodedHeader.EndcodedPayload.EncodedSignature'. (JWE): 'EncodedProtectedHeader.EncodedEncryptedKey.EncodedInitializationVector.EncodedCiphertext.EncodedAuthenticationTag'.
+ ---> Microsoft.IdentityModel.Tokens.SecurityTokenMalformedException: IDX14100: JWT is not well formed, there are no dots (.).
+The token needs to be in JWS or JWE Compact Serialization Format. (JWS): 'EncodedHeader.EndcodedPayload.EncodedSignature'. (JWE): 'EncodedProtectedHeader.EncodedEncryptedKey.EncodedInitializationVector.EncodedCiphertext.EncodedAuthenticationTag'.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.ReadToken(String encodedJson)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken..ctor(String jwtEncodedString)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ReadToken(String token, TokenValidationParameters validationParameters)
+   --- End of inner exception stack trace ---
+2026-05-10 20:58:18.303 +05:30 [INF] Bearer was not authenticated. Failure message: IDX14100: JWT is not well formed, there are no dots (.).
+The token needs to be in JWS or JWE Compact Serialization Format. (JWS): 'EncodedHeader.EndcodedPayload.EncodedSignature'. (JWE): 'EncodedProtectedHeader.EncodedEncryptedKey.EncodedInitializationVector.EncodedCiphertext.EncodedAuthenticationTag'.
+2026-05-10 20:58:18.315 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-05-10 20:58:18.324 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-05-10 20:58:18.326 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/api/customer - 401 0 null 95.192ms
+2026-05-10 20:58:46.498 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/api/customer - null null
+2026-05-10 20:58:46.587 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-05-10 20:58:46.592 +05:30 [INF] AuthenticationScheme: Bearer was forbidden.
+2026-05-10 20:58:46.594 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/api/customer - 403 0 null 96.6892ms
+2026-05-10 20:59:21.684 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/api/customer/54 - null null
+2026-05-10 20:59:21.713 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API)'
+2026-05-10 20:59:21.723 +05:30 [INF] Route matched with {action = "GetCustomerById", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCustomerByIdAsync(Int32) on controller FoodDelivery.API.Controllers.Sanjana.CustomerController (FoodDelivery.API).
+2026-05-10 20:59:21.936 +05:30 [INF] Executed DbCommand (43ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[customer_id], [t].[customer_email], [t].[customer_name], [t].[customer_phone], [t].[password], [d].[address_id], [d].[address_line1], [d].[address_line2], [d].[city], [d].[customer_id], [d].[postal_code], [d].[state]
+FROM (
+    SELECT TOP(1) [c].[customer_id], [c].[customer_email], [c].[customer_name], [c].[customer_phone], [c].[password]
+    FROM [Customers] AS [c]
+    WHERE [c].[customer_id] = @__id_0
+) AS [t]
+LEFT JOIN [DeliveryAddresses] AS [d] ON [t].[customer_id] = [d].[customer_id]
+ORDER BY [t].[customer_id]
+2026-05-10 20:59:22.073 +05:30 [INF] Executed DbCommand (38ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-10 20:59:22.096 +05:30 [INF] Executing OkObjectResult, writing value of type 'FoodDelivery.API.DTOs.Sanjana.ApiResponse`1[[CustomerResponseDto, FoodDelivery.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-10 20:59:22.115 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API) in 389.1964ms
+2026-05-10 20:59:22.144 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API)'
+2026-05-10 20:59:22.146 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/api/customer/54 - 200 null application/json; charset=utf-8 463.2188ms
+2026-05-10 20:59:58.514 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/api/customer/john@example.com - null null
+2026-05-10 20:59:58.520 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API)'
+2026-05-10 20:59:58.522 +05:30 [INF] Route matched with {action = "GetCustomerById", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCustomerByIdAsync(Int32) on controller FoodDelivery.API.Controllers.Sanjana.CustomerController (FoodDelivery.API).
+2026-05-10 20:59:58.535 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-05-10 20:59:58.537 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API) in 11.0545ms
+2026-05-10 20:59:58.549 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API)'
+2026-05-10 20:59:58.551 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/api/customer/john@example.com - 400 null application/problem+json; charset=utf-8 37.272ms
+2026-05-10 21:00:45.046 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/api/customer/email/john@example.com - null null
+2026-05-10 21:00:45.051 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-05-10 21:00:45.053 +05:30 [INF] AuthenticationScheme: Bearer was forbidden.
+2026-05-10 21:00:45.054 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/api/customer/email/john@example.com - 403 0 null 8.0991ms
+2026-05-10 21:01:28.327 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/api/customer/54 - null null
+2026-05-10 21:01:28.333 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API)'
+2026-05-10 21:01:28.334 +05:30 [INF] Route matched with {action = "GetCustomerById", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCustomerByIdAsync(Int32) on controller FoodDelivery.API.Controllers.Sanjana.CustomerController (FoodDelivery.API).
+2026-05-10 21:01:28.458 +05:30 [INF] Executed DbCommand (31ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[customer_id], [t].[customer_email], [t].[customer_name], [t].[customer_phone], [t].[password], [d].[address_id], [d].[address_line1], [d].[address_line2], [d].[city], [d].[customer_id], [d].[postal_code], [d].[state]
+FROM (
+    SELECT TOP(1) [c].[customer_id], [c].[customer_email], [c].[customer_name], [c].[customer_phone], [c].[password]
+    FROM [Customers] AS [c]
+    WHERE [c].[customer_id] = @__id_0
+) AS [t]
+LEFT JOIN [DeliveryAddresses] AS [d] ON [t].[customer_id] = [d].[customer_id]
+ORDER BY [t].[customer_id]
+2026-05-10 21:01:28.468 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-10 21:01:28.471 +05:30 [INF] Executing OkObjectResult, writing value of type 'FoodDelivery.API.DTOs.Sanjana.ApiResponse`1[[CustomerResponseDto, FoodDelivery.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-10 21:01:28.474 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API) in 135.8383ms
+2026-05-10 21:01:28.483 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API)'
+2026-05-10 21:01:28.485 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/api/customer/54 - 200 null application/json; charset=utf-8 157.3044ms
+2026-05-10 21:32:43.975 +05:30 [INF] User profile is available. Using 'C:\Users\sanja\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-10 21:32:44.204 +05:30 [INF] Now listening on: https://localhost:7292
+2026-05-10 21:32:44.207 +05:30 [INF] Now listening on: http://localhost:5139
+2026-05-10 21:32:44.388 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-10 21:32:44.389 +05:30 [INF] Hosting environment: Development
+2026-05-10 21:32:44.390 +05:30 [INF] Content root path: D:\Capstone\FoodDelivery\QuickEatsProj\FoodDeliverySystem\FoodDelivery\FoodDelivery.API
+2026-05-10 21:33:08.850 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/Auth/login - application/json 83
+2026-05-10 21:33:08.993 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:33:09.031 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FoodDelivery.API.DTOs.Sanjana.LoginDto) on controller FoodDelivery.API.Controllers.Sanjana.AuthController (FoodDelivery.API).
+2026-05-10 21:33:09.398 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-10 21:33:09.411 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API) in 373.6692ms
+2026-05-10 21:33:09.413 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:33:09.419 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/Auth/login - 401 null application/json; charset=utf-8 580.8862ms
+2026-05-10 21:33:22.192 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/Auth/login - application/json 83
+2026-05-10 21:33:22.200 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:33:22.202 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FoodDelivery.API.DTOs.Sanjana.LoginDto) on controller FoodDelivery.API.Controllers.Sanjana.AuthController (FoodDelivery.API).
+2026-05-10 21:33:22.224 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-05-10 21:33:22.253 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API) in 48.6547ms
+2026-05-10 21:33:22.255 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:33:22.256 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/Auth/login - 400 null application/problem+json; charset=utf-8 64.6759ms
+2026-05-10 21:33:31.412 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/Auth/login - application/json 85
+2026-05-10 21:33:31.418 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:33:31.419 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FoodDelivery.API.DTOs.Sanjana.LoginDto) on controller FoodDelivery.API.Controllers.Sanjana.AuthController (FoodDelivery.API).
+2026-05-10 21:33:33.200 +05:30 [INF] Executed DbCommand (115ms) [Parameters=[@__loginDto_Email_0='?' (Size = 255) (DbType = AnsiString), @__loginDto_Password_1='?' (Size = 255) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[customer_id], [c].[customer_email], [c].[customer_name], [c].[customer_phone], [c].[password]
+FROM [Customers] AS [c]
+WHERE [c].[customer_email] = @__loginDto_Email_0 AND [c].[password] = @__loginDto_Password_1
+2026-05-10 21:33:33.364 +05:30 [INF] Executing OkObjectResult, writing value of type 'FoodDelivery.API.DTOs.Sanjana.AuthResponseDto'.
+2026-05-10 21:33:33.368 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API) in 1947.0721ms
+2026-05-10 21:33:33.371 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:33:33.381 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/Auth/login - 200 null application/json; charset=utf-8 1969.4975ms
+2026-05-10 21:33:49.405 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/api/customer/54 - null null
+2026-05-10 21:33:49.476 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API)'
+2026-05-10 21:33:49.483 +05:30 [INF] Route matched with {action = "GetCustomerById", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCustomerByIdAsync(Int32) on controller FoodDelivery.API.Controllers.Sanjana.CustomerController (FoodDelivery.API).
+2026-05-10 21:33:49.492 +05:30 [INF] Executing ForbidResult with authentication schemes ([]).
+2026-05-10 21:33:49.496 +05:30 [INF] AuthenticationScheme: Bearer was forbidden.
+2026-05-10 21:33:49.497 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API) in 12.2178ms
+2026-05-10 21:33:49.499 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API)'
+2026-05-10 21:33:49.500 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/api/customer/54 - 403 0 null 95.2631ms
+2026-05-10 21:34:01.815 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/api/customer/1 - null null
+2026-05-10 21:34:01.821 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API)'
+2026-05-10 21:34:01.822 +05:30 [INF] Route matched with {action = "GetCustomerById", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCustomerByIdAsync(Int32) on controller FoodDelivery.API.Controllers.Sanjana.CustomerController (FoodDelivery.API).
+2026-05-10 21:34:01.982 +05:30 [INF] Executed DbCommand (23ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[customer_id], [t].[customer_email], [t].[customer_name], [t].[customer_phone], [t].[password], [d].[address_id], [d].[address_line1], [d].[address_line2], [d].[city], [d].[customer_id], [d].[postal_code], [d].[state]
+FROM (
+    SELECT TOP(1) [c].[customer_id], [c].[customer_email], [c].[customer_name], [c].[customer_phone], [c].[password]
+    FROM [Customers] AS [c]
+    WHERE [c].[customer_id] = @__id_0
+) AS [t]
+LEFT JOIN [DeliveryAddresses] AS [d] ON [t].[customer_id] = [d].[customer_id]
+ORDER BY [t].[customer_id]
+2026-05-10 21:34:02.066 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-10 21:34:02.084 +05:30 [INF] Executing OkObjectResult, writing value of type 'FoodDelivery.API.DTOs.Sanjana.ApiResponse`1[[CustomerResponseDto, FoodDelivery.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-10 21:34:02.096 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API) in 272.4067ms
+2026-05-10 21:34:02.098 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API)'
+2026-05-10 21:34:02.100 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/api/customer/1 - 200 null application/json; charset=utf-8 285.5764ms
+2026-05-10 21:35:19.375 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/Auth/register/customer - application/json 112
+2026-05-10 21:35:19.388 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.RegisterCustomer (FoodDelivery.API)'
+2026-05-10 21:35:19.394 +05:30 [INF] Route matched with {action = "RegisterCustomer", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterCustomer(CreateCustomerDto) on controller FoodDelivery.API.Controllers.Sanjana.AuthController (FoodDelivery.API).
+2026-05-10 21:35:19.452 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-05-10 21:35:19.454 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AuthController.RegisterCustomer (FoodDelivery.API) in 57.3683ms
+2026-05-10 21:35:19.456 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.RegisterCustomer (FoodDelivery.API)'
+2026-05-10 21:35:19.457 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/Auth/register/customer - 400 null application/problem+json; charset=utf-8 82.1696ms
+2026-05-10 21:35:53.163 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/Auth/register/customer - application/json 117
+2026-05-10 21:35:53.178 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.RegisterCustomer (FoodDelivery.API)'
+2026-05-10 21:35:53.180 +05:30 [INF] Route matched with {action = "RegisterCustomer", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterCustomer(CreateCustomerDto) on controller FoodDelivery.API.Controllers.Sanjana.AuthController (FoodDelivery.API).
+2026-05-10 21:35:53.184 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-05-10 21:35:53.186 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AuthController.RegisterCustomer (FoodDelivery.API) in 4.4199ms
+2026-05-10 21:35:53.188 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.RegisterCustomer (FoodDelivery.API)'
+2026-05-10 21:35:53.190 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/Auth/register/customer - 400 null application/problem+json; charset=utf-8 27.0673ms
+2026-05-10 21:36:13.276 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/Auth/register/customer - application/json 123
+2026-05-10 21:36:13.286 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.RegisterCustomer (FoodDelivery.API)'
+2026-05-10 21:36:13.287 +05:30 [INF] Route matched with {action = "RegisterCustomer", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterCustomer(CreateCustomerDto) on controller FoodDelivery.API.Controllers.Sanjana.AuthController (FoodDelivery.API).
+2026-05-10 21:36:13.384 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__customerDto_CustomerEmail_0='?' (Size = 255) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Customers] AS [c]
+        WHERE [c].[customer_email] = @__customerDto_CustomerEmail_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-05-10 21:36:13.535 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (Size = 255) (DbType = AnsiString), @p1='?' (Size = 255) (DbType = AnsiString), @p2='?' (Size = 20) (DbType = AnsiString), @p3='?' (Size = 255) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Customers] ([customer_email], [customer_name], [customer_phone], [password])
+OUTPUT INSERTED.[customer_id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-05-10 21:36:13.565 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-10 21:36:13.567 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AuthController.RegisterCustomer (FoodDelivery.API) in 277.7596ms
+2026-05-10 21:36:13.569 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.RegisterCustomer (FoodDelivery.API)'
+2026-05-10 21:36:13.570 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/Auth/register/customer - 200 null application/json; charset=utf-8 293.9508ms
+2026-05-10 21:37:00.837 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/Auth/login - application/json 89
+2026-05-10 21:37:00.845 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:37:00.846 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FoodDelivery.API.DTOs.Sanjana.LoginDto) on controller FoodDelivery.API.Controllers.Sanjana.AuthController (FoodDelivery.API).
+2026-05-10 21:37:00.857 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__loginDto_Email_0='?' (Size = 255) (DbType = AnsiString), @__loginDto_Password_1='?' (Size = 255) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[customer_id], [c].[customer_email], [c].[customer_name], [c].[customer_phone], [c].[password]
+FROM [Customers] AS [c]
+WHERE [c].[customer_email] = @__loginDto_Email_0 AND [c].[password] = @__loginDto_Password_1
+2026-05-10 21:37:00.860 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-10 21:37:00.861 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API) in 13.3213ms
+2026-05-10 21:37:00.863 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:37:00.865 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/Auth/login - 401 null application/json; charset=utf-8 28.1039ms
+2026-05-10 21:37:18.965 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/Auth/login - application/json 89
+2026-05-10 21:37:18.968 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:37:18.971 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FoodDelivery.API.DTOs.Sanjana.LoginDto) on controller FoodDelivery.API.Controllers.Sanjana.AuthController (FoodDelivery.API).
+2026-05-10 21:37:18.973 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-10 21:37:18.975 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API) in 2.2326ms
+2026-05-10 21:37:18.977 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:37:18.978 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/Auth/login - 401 null application/json; charset=utf-8 13.2453ms
+2026-05-10 21:37:57.785 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/Auth/login - application/json 78
+2026-05-10 21:37:57.795 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:37:57.796 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FoodDelivery.API.DTOs.Sanjana.LoginDto) on controller FoodDelivery.API.Controllers.Sanjana.AuthController (FoodDelivery.API).
+2026-05-10 21:37:57.799 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-10 21:37:57.801 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API) in 2.6782ms
+2026-05-10 21:37:57.802 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:37:57.804 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/Auth/login - 401 null application/json; charset=utf-8 19.3654ms
+2026-05-10 21:38:02.128 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/Auth/login - application/json 78
+2026-05-10 21:38:02.132 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:38:02.133 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FoodDelivery.API.DTOs.Sanjana.LoginDto) on controller FoodDelivery.API.Controllers.Sanjana.AuthController (FoodDelivery.API).
+2026-05-10 21:38:02.136 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-10 21:38:02.137 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API) in 2.0958ms
+2026-05-10 21:38:02.139 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:38:02.140 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/Auth/login - 401 null application/json; charset=utf-8 12.6273ms
+2026-05-10 21:38:03.105 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/Auth/login - application/json 78
+2026-05-10 21:38:03.110 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:38:03.111 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FoodDelivery.API.DTOs.Sanjana.LoginDto) on controller FoodDelivery.API.Controllers.Sanjana.AuthController (FoodDelivery.API).
+2026-05-10 21:38:03.113 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-10 21:38:03.115 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API) in 2.1724ms
+2026-05-10 21:38:03.116 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:38:03.118 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/Auth/login - 401 null application/json; charset=utf-8 12.7875ms
+2026-05-10 21:38:40.818 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/Auth/login - application/json 78
+2026-05-10 21:38:40.823 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:38:40.824 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FoodDelivery.API.DTOs.Sanjana.LoginDto) on controller FoodDelivery.API.Controllers.Sanjana.AuthController (FoodDelivery.API).
+2026-05-10 21:38:40.837 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__loginDto_Email_0='?' (Size = 255) (DbType = AnsiString), @__loginDto_Password_1='?' (Size = 255) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[customer_id], [c].[customer_email], [c].[customer_name], [c].[customer_phone], [c].[password]
+FROM [Customers] AS [c]
+WHERE [c].[customer_email] = @__loginDto_Email_0 AND [c].[password] = @__loginDto_Password_1
+2026-05-10 21:38:40.841 +05:30 [INF] Executing OkObjectResult, writing value of type 'FoodDelivery.API.DTOs.Sanjana.AuthResponseDto'.
+2026-05-10 21:38:40.842 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API) in 16.5059ms
+2026-05-10 21:38:40.844 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AuthController.Login (FoodDelivery.API)'
+2026-05-10 21:38:40.845 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/Auth/login - 200 null application/json; charset=utf-8 26.7543ms
+2026-05-10 21:39:18.807 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/api/customer - null null
+2026-05-10 21:39:18.813 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-05-10 21:39:18.815 +05:30 [INF] AuthenticationScheme: Bearer was forbidden.
+2026-05-10 21:39:18.816 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/api/customer - 403 0 null 10.1435ms
+2026-05-10 21:39:35.870 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/api/customer/57 - null null
+2026-05-10 21:39:35.873 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API)'
+2026-05-10 21:39:35.875 +05:30 [INF] Route matched with {action = "GetCustomerById", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCustomerByIdAsync(Int32) on controller FoodDelivery.API.Controllers.Sanjana.CustomerController (FoodDelivery.API).
+2026-05-10 21:39:35.884 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[customer_id], [t].[customer_email], [t].[customer_name], [t].[customer_phone], [t].[password], [d].[address_id], [d].[address_line1], [d].[address_line2], [d].[city], [d].[customer_id], [d].[postal_code], [d].[state]
+FROM (
+    SELECT TOP(1) [c].[customer_id], [c].[customer_email], [c].[customer_name], [c].[customer_phone], [c].[password]
+    FROM [Customers] AS [c]
+    WHERE [c].[customer_id] = @__id_0
+) AS [t]
+LEFT JOIN [DeliveryAddresses] AS [d] ON [t].[customer_id] = [d].[customer_id]
+ORDER BY [t].[customer_id]
+2026-05-10 21:39:35.892 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-10 21:39:35.895 +05:30 [INF] Executing OkObjectResult, writing value of type 'FoodDelivery.API.DTOs.Sanjana.ApiResponse`1[[CustomerResponseDto, FoodDelivery.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-10 21:39:35.897 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API) in 20.2603ms
+2026-05-10 21:39:35.899 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API)'
+2026-05-10 21:39:35.900 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/api/customer/57 - 200 null application/json; charset=utf-8 30.6854ms
+2026-05-10 21:41:01.023 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/address/57 - application/json 130
+2026-05-10 21:41:01.026 +05:30 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-05-10 21:41:01.028 +05:30 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-05-10 21:41:01.029 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/address/57 - 405 0 null 7.0378ms
+2026-05-10 21:41:34.085 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/address/customer/57 - application/json 130
+2026-05-10 21:41:34.088 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AddressController.CreateAddressAsync (FoodDelivery.API)'
+2026-05-10 21:41:34.093 +05:30 [INF] Route matched with {action = "CreateAddress", controller = "Address"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateAddressAsync(Int32, FoodDelivery.API.DTOs.Sanjana.CreateAddressDto) on controller FoodDelivery.API.Controllers.Sanjana.AddressController (FoodDelivery.API).
+2026-05-10 21:41:34.104 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-05-10 21:41:34.106 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AddressController.CreateAddressAsync (FoodDelivery.API) in 10.8512ms
+2026-05-10 21:41:34.112 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AddressController.CreateAddressAsync (FoodDelivery.API)'
+2026-05-10 21:41:34.113 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/address/customer/57 - 400 null application/problem+json; charset=utf-8 28.5446ms
+2026-05-10 21:42:07.068 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/address/customer/57 - application/json 102
+2026-05-10 21:42:07.071 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AddressController.CreateAddressAsync (FoodDelivery.API)'
+2026-05-10 21:42:07.072 +05:30 [INF] Route matched with {action = "CreateAddress", controller = "Address"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateAddressAsync(Int32, FoodDelivery.API.DTOs.Sanjana.CreateAddressDto) on controller FoodDelivery.API.Controllers.Sanjana.AddressController (FoodDelivery.API).
+2026-05-10 21:42:07.078 +05:30 [INF] Creating address for customer 57
+2026-05-10 21:42:07.091 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[customer_id], [t].[customer_email], [t].[customer_name], [t].[customer_phone], [t].[password], [d].[address_id], [d].[address_line1], [d].[address_line2], [d].[city], [d].[customer_id], [d].[postal_code], [d].[state]
+FROM (
+    SELECT TOP(1) [c].[customer_id], [c].[customer_email], [c].[customer_name], [c].[customer_phone], [c].[password]
+    FROM [Customers] AS [c]
+    WHERE [c].[customer_id] = @__id_0
+) AS [t]
+LEFT JOIN [DeliveryAddresses] AS [d] ON [t].[customer_id] = [d].[customer_id]
+ORDER BY [t].[customer_id]
+2026-05-10 21:42:07.137 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 255) (DbType = AnsiString), @p1='?' (Size = 255) (DbType = AnsiString), @p2='?' (Size = 100) (DbType = AnsiString), @p3='?' (DbType = Int32), @p4='?' (Size = 20) (DbType = AnsiString), @p5='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [DeliveryAddresses] ([address_line1], [address_line2], [city], [customer_id], [postal_code], [state])
+OUTPUT INSERTED.[address_id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-05-10 21:42:07.143 +05:30 [INF] Created address: FoodDelivery.API.Models.DeliveryAddress
+2026-05-10 21:42:07.147 +05:30 [INF] Executing ObjectResult, writing value of type 'FoodDelivery.API.DTOs.Sanjana.ApiResponse`1[[FoodDelivery.API.DTOs.Sanjana.AddressResponseDto, FoodDelivery.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-10 21:42:07.150 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AddressController.CreateAddressAsync (FoodDelivery.API) in 76.2363ms
+2026-05-10 21:42:07.152 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AddressController.CreateAddressAsync (FoodDelivery.API)'
+2026-05-10 21:42:07.153 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/address/customer/57 - 201 null application/json; charset=utf-8 85.7122ms
+2026-05-10 21:42:34.566 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7292/api/address/53 - application/json 102
+2026-05-10 21:42:34.569 +05:30 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-05-10 21:42:34.570 +05:30 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-05-10 21:42:34.572 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7292/api/address/53 - 405 0 null 5.7027ms
+2026-05-10 21:42:41.761 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/api/address/53 - application/json 102
+2026-05-10 21:42:41.764 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AddressController.GetAddressByAddressIdAsync (FoodDelivery.API)'
+2026-05-10 21:42:41.769 +05:30 [INF] Route matched with {action = "GetAddressByAddressId", controller = "Address"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAddressByAddressIdAsync(Int32) on controller FoodDelivery.API.Controllers.Sanjana.AddressController (FoodDelivery.API).
+2026-05-10 21:42:41.775 +05:30 [INF] Getting address with id 53
+2026-05-10 21:42:41.786 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__addressId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[address_id], [d].[address_line1], [d].[address_line2], [d].[city], [d].[customer_id], [d].[postal_code], [d].[state]
+FROM [DeliveryAddresses] AS [d]
+WHERE [d].[address_id] = @__addressId_0
+2026-05-10 21:42:41.791 +05:30 [INF] Executing OkObjectResult, writing value of type 'FoodDelivery.API.DTOs.Sanjana.ApiResponse`1[[FoodDelivery.API.DTOs.Sanjana.AddressResponseDto, FoodDelivery.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-10 21:42:41.793 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AddressController.GetAddressByAddressIdAsync (FoodDelivery.API) in 21.8795ms
+2026-05-10 21:42:41.798 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AddressController.GetAddressByAddressIdAsync (FoodDelivery.API)'
+2026-05-10 21:42:41.800 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/api/address/53 - 200 null application/json; charset=utf-8 39.3836ms
+2026-05-10 21:43:22.120 +05:30 [INF] Request starting HTTP/2 PUT https://localhost:7292/api/address/53 - application/json 107
+2026-05-10 21:43:22.124 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AddressController.UpdateAddressAsync (FoodDelivery.API)'
+2026-05-10 21:43:22.130 +05:30 [INF] Route matched with {action = "UpdateAddress", controller = "Address"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateAddressAsync(Int32, FoodDelivery.API.DTOs.Sanjana.UpdateAddressDto) on controller FoodDelivery.API.Controllers.Sanjana.AddressController (FoodDelivery.API).
+2026-05-10 21:43:22.138 +05:30 [INF] Getting address with id 53
+2026-05-10 21:43:22.147 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__addressId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[address_id], [d].[address_line1], [d].[address_line2], [d].[city], [d].[customer_id], [d].[postal_code], [d].[state]
+FROM [DeliveryAddresses] AS [d]
+WHERE [d].[address_id] = @__addressId_0
+2026-05-10 21:43:22.152 +05:30 [INF] Updating address with id 53
+2026-05-10 21:43:22.154 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__addressId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[address_id], [d].[address_line1], [d].[address_line2], [d].[city], [d].[customer_id], [d].[postal_code], [d].[state]
+FROM [DeliveryAddresses] AS [d]
+WHERE [d].[address_id] = @__addressId_0
+2026-05-10 21:43:22.170 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@p6='?' (DbType = Int32), @p0='?' (Size = 255) (DbType = AnsiString), @p1='?' (Size = 255) (DbType = AnsiString), @p2='?' (Size = 100) (DbType = AnsiString), @p3='?' (DbType = Int32), @p4='?' (Size = 20) (DbType = AnsiString), @p5='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [DeliveryAddresses] SET [address_line1] = @p0, [address_line2] = @p1, [city] = @p2, [customer_id] = @p3, [postal_code] = @p4, [state] = @p5
+OUTPUT 1
+WHERE [address_id] = @p6;
+2026-05-10 21:43:22.174 +05:30 [INF] Address with id 53 updated successfully
+2026-05-10 21:43:22.175 +05:30 [INF] Executing OkObjectResult, writing value of type 'FoodDelivery.API.DTOs.Sanjana.ApiResponse`1[[FoodDelivery.API.DTOs.Sanjana.AddressResponseDto, FoodDelivery.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-10 21:43:22.177 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AddressController.UpdateAddressAsync (FoodDelivery.API) in 45.0767ms
+2026-05-10 21:43:22.178 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AddressController.UpdateAddressAsync (FoodDelivery.API)'
+2026-05-10 21:43:22.180 +05:30 [INF] Request finished HTTP/2 PUT https://localhost:7292/api/address/53 - 200 null application/json; charset=utf-8 60.2959ms

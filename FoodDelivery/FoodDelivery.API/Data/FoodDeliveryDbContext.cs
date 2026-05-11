@@ -34,17 +34,19 @@ public partial class FoodDeliveryDbContext : DbContext
 
     public virtual DbSet<Restaurant> Restaurants { get; set; }
 
+    public virtual DbSet<Role> Roles { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=.\\sqlexpress;Database=foodservice;Trusted_Connection=True;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=.\\sqlexpress;Database=foodserviceCopy;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Coupon>(entity =>
         {
-            entity.HasKey(e => e.CouponId).HasName("PK__Coupons__58CF6389EFCC57C0");
+            entity.HasKey(e => e.CouponId).HasName("PK__Coupons__58CF6389DBA0CA69");
 
-            entity.HasIndex(e => e.CouponCode, "UQ__Coupons__ADE5CBB77163BD30").IsUnique();
+            entity.HasIndex(e => e.CouponCode, "UQ__Coupons__ADE5CBB7432F2B04").IsUnique();
 
             entity.Property(e => e.CouponId)
                 .ValueGeneratedNever()
@@ -61,13 +63,17 @@ public partial class FoodDeliveryDbContext : DbContext
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__CD65CB85EB9E0891");
+            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__CD65CB853A795D05");
 
             entity.Property(e => e.CustomerId).HasColumnName("customer_id");
             entity.Property(e => e.CustomerEmail)
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("customer_email");
+            entity.Property(e => e.CustomerHashedPassword)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("customer_hashed_password");
             entity.Property(e => e.CustomerName)
                 .HasMaxLength(255)
                 .IsUnicode(false)
@@ -76,17 +82,27 @@ public partial class FoodDeliveryDbContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("customer_phone");
-            entity.Property(e => e.Password)
+            entity.Property(e => e.CustomerUnhashedPassword)
                 .HasMaxLength(255)
                 .IsUnicode(false)
-                .HasColumnName("password");
+                .HasColumnName("customer_unhashed_password");
+            entity.Property(e => e.RoleId)
+                .HasDefaultValue(2)
+                .HasColumnName("role_id");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.Customers)
+                .HasForeignKey(d => d.RoleId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Customers_Roles");
         });
 
         modelBuilder.Entity<DeliveryAddress>(entity =>
         {
-            entity.HasKey(e => e.AddressId).HasName("PK__Delivery__CAA247C8BFACD4FA");
+            entity.HasKey(e => e.AddressId).HasName("PK__Delivery__CAA247C8DF01B268");
 
-            entity.Property(e => e.AddressId).HasColumnName("address_id");
+            entity.Property(e => e.AddressId)
+                .ValueGeneratedNever()
+                .HasColumnName("address_id");
             entity.Property(e => e.AddressLine1)
                 .HasMaxLength(255)
                 .IsUnicode(false)
@@ -116,13 +132,17 @@ public partial class FoodDeliveryDbContext : DbContext
 
         modelBuilder.Entity<DeliveryDriver>(entity =>
         {
-            entity.HasKey(e => e.DriverId).HasName("PK__Delivery__A411C5BDA924FAC1");
+            entity.HasKey(e => e.DriverId).HasName("PK__Delivery__A411C5BDD7FDF364");
 
             entity.Property(e => e.DriverId).HasColumnName("driver_id");
             entity.Property(e => e.DriverEmail)
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("driver_email");
+            entity.Property(e => e.DriverHashedPassword)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("driver_hashed_password");
             entity.Property(e => e.DriverName)
                 .HasMaxLength(255)
                 .IsUnicode(false)
@@ -131,19 +151,27 @@ public partial class FoodDeliveryDbContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("driver_phone");
+            entity.Property(e => e.DriverUnhashedPassword)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("driver_unhashed_password");
             entity.Property(e => e.DriverVehicle)
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("driver_vehicle");
-            entity.Property(e => e.Password)
-                .HasMaxLength(255)
-                .IsUnicode(false)
-                .HasColumnName("password");
+            entity.Property(e => e.RoleId)
+                .HasDefaultValue(4)
+                .HasColumnName("role_id");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.DeliveryDrivers)
+                .HasForeignKey(d => d.RoleId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_DeliveryDrivers_Roles");
         });
 
         modelBuilder.Entity<MenuItem>(entity =>
         {
-            entity.HasKey(e => e.ItemId).HasName("PK__MenuItem__52020FDDA6CCAF99");
+            entity.HasKey(e => e.ItemId).HasName("PK__MenuItem__52020FDD3A64F102");
 
             entity.Property(e => e.ItemId)
                 .ValueGeneratedNever()
@@ -167,7 +195,7 @@ public partial class FoodDeliveryDbContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrderId).HasName("PK__Orders__46596229B0BBD4CB");
+            entity.HasKey(e => e.OrderId).HasName("PK__Orders__46596229EF5E3EBB");
 
             entity.Property(e => e.OrderId)
                 .ValueGeneratedNever()
@@ -208,7 +236,7 @@ public partial class FoodDeliveryDbContext : DbContext
                         .HasConstraintName("FK__OrdersCou__order__73BA3083"),
                     j =>
                     {
-                        j.HasKey("OrderId", "CouponId").HasName("PK__OrdersCo__C3D594113BF65E67");
+                        j.HasKey("OrderId", "CouponId").HasName("PK__OrdersCo__C3D59411942AEFD2");
                         j.ToTable("OrdersCoupons");
                         j.IndexerProperty<int>("OrderId").HasColumnName("order_id");
                         j.IndexerProperty<int>("CouponId").HasColumnName("coupon_id");
@@ -217,7 +245,7 @@ public partial class FoodDeliveryDbContext : DbContext
 
         modelBuilder.Entity<OrderItem>(entity =>
         {
-            entity.HasKey(e => e.OrderItemId).HasName("PK__OrderIte__3764B6BCDDE1D952");
+            entity.HasKey(e => e.OrderItemId).HasName("PK__OrderIte__3764B6BC73AAA034");
 
             entity.Property(e => e.OrderItemId)
                 .ValueGeneratedNever()
@@ -237,7 +265,7 @@ public partial class FoodDeliveryDbContext : DbContext
 
         modelBuilder.Entity<Rating>(entity =>
         {
-            entity.HasKey(e => e.RatingId).HasName("PK__Ratings__D35B278BB24C6C14");
+            entity.HasKey(e => e.RatingId).HasName("PK__Ratings__D35B278BA6B8EAFC");
 
             entity.Property(e => e.RatingId)
                 .ValueGeneratedNever()
@@ -260,13 +288,9 @@ public partial class FoodDeliveryDbContext : DbContext
 
         modelBuilder.Entity<Restaurant>(entity =>
         {
-            entity.HasKey(e => e.RestaurantId).HasName("PK__Restaura__3B0FAA91676E4260");
+            entity.HasKey(e => e.RestaurantId).HasName("PK__Restaura__3B0FAA918A944CF4");
 
             entity.Property(e => e.RestaurantId).HasColumnName("restaurant_id");
-            entity.Property(e => e.Password)
-                .HasMaxLength(255)
-                .IsUnicode(false)
-                .HasColumnName("password");
             entity.Property(e => e.RestaurantAddress)
                 .HasMaxLength(255)
                 .IsUnicode(false)
@@ -275,6 +299,10 @@ public partial class FoodDeliveryDbContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("restaurant_email");
+            entity.Property(e => e.RestaurantHashedPassword)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("restaurant_hashed_password");
             entity.Property(e => e.RestaurantName)
                 .HasMaxLength(255)
                 .IsUnicode(false)
@@ -283,6 +311,33 @@ public partial class FoodDeliveryDbContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("restaurant_phone");
+            entity.Property(e => e.RestaurantUnhashedPassword)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("restaurant_unhashed_password");
+            entity.Property(e => e.RoleId)
+                .HasDefaultValue(3)
+                .HasColumnName("role_id");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.Restaurants)
+                .HasForeignKey(d => d.RoleId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Restaurants_Roles");
+        });
+
+        modelBuilder.Entity<Role>(entity =>
+        {
+            entity.HasKey(e => e.RoleId).HasName("PK__Roles__760965CC64B20672");
+
+            entity.HasIndex(e => e.RoleName, "UQ__Roles__783254B1DB41B725").IsUnique();
+
+            entity.Property(e => e.RoleId)
+                .ValueGeneratedNever()
+                .HasColumnName("role_id");
+            entity.Property(e => e.RoleName)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("role_name");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -32,6 +32,7 @@ namespace FoodDelivery.API.Services.Implementations.Sanjana
 
             var address = _mapper.Map<DeliveryAddress>(dto);
             address.CustomerId = customerId;
+            
 
             var created = await _addressRepository.CreateAddressAsync(address);
             _logger.LogInformation($"Created address: {created}");

@@ -9,7 +9,8 @@ namespace FoodDelivery.API.Mapper
     {
         public CustomerProfile()
         {
-            CreateMap<CreateCustomerDto, Customer>();
+            CreateMap<CreateCustomerDto, Customer>()
+                .ForMember(dest => dest.CustomerUnhashedPassword, opt => opt.MapFrom(src => src.Password));
             CreateMap<Customer, CustomerResponseDto>().ForMember(dest => dest.TotalOrders, opt => opt.Ignore())
                 .ForMember(dest => dest.Addresses, opt => opt.Ignore());
         

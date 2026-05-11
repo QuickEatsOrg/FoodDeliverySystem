@@ -1,17 +1,19 @@
 using FluentValidation;
-using Serilog;
 using FluentValidation.AspNetCore;
 using FoodDelivery.API.Data;
 using FoodDelivery.API.Exceptions;
 using FoodDelivery.API.Mapper;
+using FoodDelivery.API.Models;
 using FoodDelivery.API.Repositories.Implementations.Sanjana;
 using FoodDelivery.API.Repositories.Interfaces.Sanjana;
 using FoodDelivery.API.Services.Implementations.Sanjana;
 using FoodDelivery.API.Services.Interfaces.Sanjana;
 using FoodDelivery.API.Validators;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 using System.Text;
 
 
@@ -34,6 +36,12 @@ builder.Services.AddDbContext<FoodDeliveryDbContext>(options =>
     ?? throw new NotFoundException("Connection string not found")));
 
 builder.Services.AddFluentValidationAutoValidation();
+
+builder.Services.AddScoped<IPasswordHasher<Customer>, PasswordHasher<Customer>>();
+
+builder.Services.AddScoped<IPasswordHasher<DeliveryDriver>, PasswordHasher<DeliveryDriver>>();
+
+builder.Services.AddScoped<IPasswordHasher<Restaurant>, PasswordHasher<Restaurant>>();
 
 builder.Services.AddValidatorsFromAssemblyContaining<RegisterCustomerDtoValidator>();
 

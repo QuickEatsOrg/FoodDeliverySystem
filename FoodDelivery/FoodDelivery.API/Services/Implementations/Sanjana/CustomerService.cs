@@ -1,4 +1,5 @@
 using AutoMapper;
+using BCrypt.Net;
 using FoodDelivery.API.DTOs.Sanjana;
 using FoodDelivery.API.Exceptions;
 using FoodDelivery.API.Models;
@@ -26,6 +27,10 @@ namespace FoodDelivery.API.Services.Implementations.Sanjana
                 throw new ConflictException($"{createCustomerDto.CustomerPhone} already exists");
 
             var customer = _mapper.Map<Customer>(createCustomerDto);
+            customer.CustomerUnhashedPassword = BCrypt.Net.BCrypt.HashPassword(createCustomerDto.Password);
+
+            customer.RoleId = 2;
+
             var created = await _repository.CreateCustomerAsync(customer);
             return await GetCustomerByIdAsync(created.CustomerId);
         }

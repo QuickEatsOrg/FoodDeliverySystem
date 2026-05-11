@@ -1,0 +1,35 @@
+@model FoodDelivery.MVC.Models.DeliveryDto
+
+@{
+    ViewData["Title"] = "Delivery Details";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Delivery Details</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h4>Order Information</h4>
+            <hr />
+
+            <p><strong>Order Id:</strong> @Model.OrderId</p>
+            <p><strong>Order Date:</strong> @(Model.OrderDate?.ToString("dd-MM-yyyy hh:mm tt") ?? "-")</p>
+            <p><strong>Customer Id:</strong> @(Model.CustomerId?.ToString() ?? "-")</p>
+            <p><strong>Restaurant Id:</strong> @(Model.RestaurantId?.ToString() ?? "-")</p>
+            <p><strong>Status:</strong> @(Model.OrderStatus ?? "-")</p>
+
+            <h4 class="mt-4">Driver Information</h4>
+            <hr />
+
+            <p><strong>Driver Id:</strong> @(Model.DeliveryDriverId?.ToString() ?? "Not Assigned")</p>
+            <p><strong>Driver Name:</strong> @(Model.DriverName ?? "Not Assigned")</p>
+            <p><strong>Driver Phone:</strong> @(Model.DriverPhone ?? "-")</p>
+            <p><strong>Driver Vehicle:</strong> @(Model.DriverVehicle ?? "-")</p>
+            <p><strong>Driver Email:</strong> @(Model.DriverEmail ?? "-")</p>
+
+            <a class="btn btn-secondary mt-3" asp-controller="Driver" asp-action="MyDeliveries">
+                Back
+            </a>
+        </div>
+    </div>
+</div>

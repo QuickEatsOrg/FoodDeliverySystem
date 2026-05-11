@@ -1,0 +1,287 @@
+2026-05-09 14:37:23.639 +05:30 [INF] Now listening on: https://localhost:7292
+2026-05-09 14:37:23.678 +05:30 [INF] Now listening on: http://localhost:5139
+2026-05-09 14:37:23.864 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-09 14:37:23.865 +05:30 [INF] Hosting environment: Development
+2026-05-09 14:37:23.866 +05:30 [INF] Content root path: D:\Capstone\FoodDelivery\QuickEatsProj\FoodDeliverySystem\FoodDelivery\FoodDelivery.API
+2026-05-09 14:37:31.444 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/ - null null
+2026-05-09 14:37:31.641 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/ - 404 null null 208.4868ms
+2026-05-09 14:37:31.648 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7292/, Response status code: 404
+2026-05-09 14:40:49.042 +05:30 [INF] Now listening on: https://localhost:7292
+2026-05-09 14:40:49.069 +05:30 [INF] Now listening on: http://localhost:5139
+2026-05-09 14:40:49.128 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-09 14:40:49.129 +05:30 [INF] Hosting environment: Development
+2026-05-09 14:40:49.131 +05:30 [INF] Content root path: D:\Capstone\FoodDelivery\QuickEatsProj\FoodDeliverySystem\FoodDelivery\FoodDelivery.API
+2026-05-09 14:41:18.500 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/api/Address/1 - null null
+2026-05-09 14:41:18.556 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.AddressController.GetAddressByAddressIdAsync (FoodDelivery.API)'
+2026-05-09 14:41:18.591 +05:30 [INF] Route matched with {action = "GetAddressByAddressId", controller = "Address"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAddressByAddressIdAsync(Int32) on controller FoodDelivery.API.Controllers.Sanjana.AddressController (FoodDelivery.API).
+2026-05-09 14:41:18.923 +05:30 [INF] Getting address with id 1
+2026-05-09 14:41:20.675 +05:30 [INF] Executed DbCommand (97ms) [Parameters=[@__addressId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[address_id], [d].[address_line1], [d].[address_line2], [d].[city], [d].[customer_id], [d].[postal_code], [d].[state]
+FROM [DeliveryAddresses] AS [d]
+WHERE [d].[address_id] = @__addressId_0
+2026-05-09 14:41:20.787 +05:30 [INF] Executing OkObjectResult, writing value of type 'FoodDelivery.API.DTOs.Sanjana.ApiResponse`1[[FoodDelivery.API.DTOs.Sanjana.AddressResponseDto, FoodDelivery.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 14:41:20.811 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.AddressController.GetAddressByAddressIdAsync (FoodDelivery.API) in 2214.0151ms
+2026-05-09 14:41:20.813 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.AddressController.GetAddressByAddressIdAsync (FoodDelivery.API)'
+2026-05-09 14:41:20.818 +05:30 [INF] HTTP GET /api/Address/1 responded 200 in 2263.0157 ms
+2026-05-09 14:41:20.835 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/api/Address/1 - 200 null application/json; charset=utf-8 2345.531ms
+2026-05-09 14:42:06.594 +05:30 [INF] Now listening on: https://localhost:7292
+2026-05-09 14:42:06.624 +05:30 [INF] Now listening on: http://localhost:5139
+2026-05-09 14:42:06.687 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-09 14:42:06.688 +05:30 [INF] Hosting environment: Development
+2026-05-09 14:42:06.689 +05:30 [INF] Content root path: D:\Capstone\FoodDelivery\QuickEatsProj\FoodDeliverySystem\FoodDelivery\FoodDelivery.API
+2026-05-09 14:42:39.265 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/api/Customer - null null
+2026-05-09 14:42:39.321 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetAllCustomersAsync (FoodDelivery.API)'
+2026-05-09 14:42:39.343 +05:30 [INF] Route matched with {action = "GetAllCustomers", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllCustomersAsync() on controller FoodDelivery.API.Controllers.Sanjana.CustomerController (FoodDelivery.API).
+2026-05-09 14:42:41.148 +05:30 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[customer_id], [c].[customer_email], [c].[customer_name], [c].[customer_phone], [c].[password], [d].[address_id], [d].[address_line1], [d].[address_line2], [d].[city], [d].[customer_id], [d].[postal_code], [d].[state]
+FROM [Customers] AS [c]
+LEFT JOIN [DeliveryAddresses] AS [d] ON [c].[customer_id] = [d].[customer_id]
+ORDER BY [c].[customer_id]
+2026-05-09 14:42:41.353 +05:30 [INF] Executed DbCommand (27ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.373 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.376 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.380 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.383 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.388 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.391 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.395 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.398 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.402 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.406 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.410 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.414 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.418 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.422 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.425 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.428 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.432 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.436 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.440 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.443 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.446 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.450 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.453 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.457 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.461 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.465 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.468 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.472 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.475 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.479 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.483 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.486 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.490 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.493 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.497 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.500 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.503 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.506 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.511 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.514 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.518 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.521 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.525 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.528 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.532 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.535 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.539 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.542 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.546 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.549 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.553 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.556 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.560 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.563 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.567 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:41.578 +05:30 [INF] Executing OkObjectResult, writing value of type 'FoodDelivery.API.DTOs.Sanjana.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[FoodDelivery.API.DTOs.Sanjana.CustomerResponseDto, FoodDelivery.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-09 14:42:41.625 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.CustomerController.GetAllCustomersAsync (FoodDelivery.API) in 2274.6474ms
+2026-05-09 14:42:41.628 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetAllCustomersAsync (FoodDelivery.API)'
+2026-05-09 14:42:41.641 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/api/Customer - 200 null application/json; charset=utf-8 2386.0371ms
+2026-05-09 14:42:54.826 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7292/api/Customer/54 - null null
+2026-05-09 14:42:54.835 +05:30 [INF] Executing endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API)'
+2026-05-09 14:42:54.849 +05:30 [INF] Route matched with {action = "GetCustomerById", controller = "Customer"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetCustomerByIdAsync(Int32) on controller FoodDelivery.API.Controllers.Sanjana.CustomerController (FoodDelivery.API).
+2026-05-09 14:42:54.937 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[customer_id], [t].[customer_email], [t].[customer_name], [t].[customer_phone], [t].[password], [d].[address_id], [d].[address_line1], [d].[address_line2], [d].[city], [d].[customer_id], [d].[postal_code], [d].[state]
+FROM (
+    SELECT TOP(1) [c].[customer_id], [c].[customer_email], [c].[customer_name], [c].[customer_phone], [c].[password]
+    FROM [Customers] AS [c]
+    WHERE [c].[customer_id] = @__id_0
+) AS [t]
+LEFT JOIN [DeliveryAddresses] AS [d] ON [t].[customer_id] = [d].[customer_id]
+ORDER BY [t].[customer_id]
+2026-05-09 14:42:54.943 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Orders] AS [o]
+WHERE [o].[customer_id] = @__customerId_0
+2026-05-09 14:42:54.946 +05:30 [INF] Executing OkObjectResult, writing value of type 'FoodDelivery.API.DTOs.Sanjana.ApiResponse`1[[FoodDelivery.API.DTOs.Sanjana.CustomerResponseDto, FoodDelivery.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-09 14:42:54.950 +05:30 [INF] Executed action FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API) in 98.5731ms
+2026-05-09 14:42:54.951 +05:30 [INF] Executed endpoint 'FoodDelivery.API.Controllers.Sanjana.CustomerController.GetCustomerByIdAsync (FoodDelivery.API)'
+2026-05-09 14:42:54.953 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7292/api/Customer/54 - 200 null application/json; charset=utf-8 128.2497ms

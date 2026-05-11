@@ -1,9 +1,11 @@
-namespace FoodDelivery.API.Exceptions;
 
-public class UnauthorizedException : Exception
+namespace FoodService.Exceptions
 {
-    public UnauthorizedException(string message)
-        : base(message)
+    public class UnauthorizedException : Exception
     {
+        public UnauthorizedException(string message)
+            : base(message)
+        {
+        }
     }
 }

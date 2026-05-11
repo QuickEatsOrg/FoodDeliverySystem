@@ -1,10 +1,6 @@
 using System.Text;
-using FluentValidation;
-using FluentValidation.AspNetCore;
 using FoodDelivery.API.Data;
 using FoodDelivery.API.Helpers;
-using FoodDelivery.API.Mappings;
-using FoodDelivery.API.Repositories;
 using FoodDelivery.API.Repositories.Implementations;
 using FoodDelivery.API.Repositories.Implementations.Tushar;
 using FoodDelivery.API.Repositories.Interfaces.Tushar;
@@ -16,9 +12,18 @@ using FoodDelivery.API.Validations.Neha;
 using FoodDelivery.API.Validators.Tushar;
 using FoodService.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
+
+using FoodDelivery.API.Repositories;
+using FoodDelivery.API.Services;
+using FoodDelivery.API.Mappings;
+using Microsoft.EntityFrameworkCore;
+using FoodDelivery.API.Models;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using FoodDelivery.API.Exceptions;
+using FoodDelivery.API.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,21 +46,6 @@ builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateDriverDtoValidator>();
 
 builder.Services.AddEndpointsApiExplorer();
-
-builder.Services.AddSwaggerGen(options =>
-{
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        Name = "Authorization",
-        Type = SecuritySchemeType.Http,
-        Scheme = "Bearer",
-        BearerFormat = "JWT",
-        In = ParameterLocation.Header,
-        Description = "Enter token like this: Bearer your_token_here"
-    });
-
-    
-});
 
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 var secretKey = jwtSettings["SecretKey"];
@@ -96,7 +86,35 @@ builder.Services.AddScoped<IRatingService, RatingService>();
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-var app = builder.Build();
+// Add services
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<GlobalExceptionFilter>();
+});
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+
+// Database connection
+builder.Services.AddDbContext<FoodDeliveryDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    ));
+
+// AutoMapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+// Dependency Injection
+builder.Services.AddScoped<IRestaurantRepository, RestaurantRepository>();
+builder.Services.AddScoped<IRestaurantService, RestaurantService>();
+builder.Services.AddScoped<IMenuItemRepository, MenuItemRepository>();
+builder.Services.AddScoped<IMenuItemService, MenuItemService>();
+
+ var app = builder.Build();
+
+// Configure middleware
 
 if (app.Environment.IsDevelopment())
 {
@@ -111,4 +129,12 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+ app.Run();
+
 app.Run();
+

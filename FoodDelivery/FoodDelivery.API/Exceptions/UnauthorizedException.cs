@@ -1,3 +1,4 @@
+
 namespace FoodService.Exceptions
 {
     public class UnauthorizedException : Exception

@@ -6,18 +6,11 @@ namespace FoodDelivery.API.Models;
 public partial class DeliveryDriver
 {
     public int DriverId { get; set; }
-
     public string? DriverName { get; set; }
-
     public string? DriverPhone { get; set; }
-
     public string? DriverVehicle { get; set; }
-
     public string? DriverEmail { get; set; }
-
     public string? DriverUnhashedPassword { get; set; }
-
-
     public string? DriverHashedPassword { get; set; }
 
     public int RoleId { get; set; }

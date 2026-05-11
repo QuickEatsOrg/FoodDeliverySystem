@@ -1,9 +1,7 @@
 namespace FoodDelivery.API.DTOs;
 
-public class RestaurantDto
+public class UpdateRestaurantDto
 {
-    public int RestaurantId { get; set; }
-
     public string RestaurantName { get; set; }
 
     public string RestaurantAddress { get; set; }

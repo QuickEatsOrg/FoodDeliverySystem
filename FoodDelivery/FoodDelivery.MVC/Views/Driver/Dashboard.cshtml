@@ -1,0 +1,78 @@
+@model FoodDelivery.MVC.Models.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Driver Dashboard";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Driver Dashboard</h2>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5>Total Drivers</h5>
+                <h2>@Model.TotalDrivers</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5>Total Deliveries</h5>
+                <h2>@Model.TotalDeliveries</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5>Delivered Orders</h5>
+                <h2>@Model.DeliveredOrders</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <h4>Recent Deliveries</h4>
+
+        <table class="table table-bordered table-striped mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th>Order Id</th>
+                    <th>Driver Name</th>
+                    <th>Driver Phone</th>
+                    <th>Vehicle</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.RecentDeliveries.Any())
+                {
+                    foreach (var item in Model.RecentDeliveries)
+                    {
+                        <tr>
+                            <td>@item.OrderId</td>
+                            <td>@(item.DriverName ?? "Not Assigned")</td>
+                            <td>@(item.DriverPhone ?? "-")</td>
+                            <td>@(item.DriverVehicle ?? "-")</td>
+                            <td>@(item.OrderStatus ?? "-")</td>
+                            <td>
+                                <a class="btn btn-sm btn-primary"
+                                       asp-controller="Driver"
+                                       asp-action="DeliveryDetails"
+                                       asp-route-id="@item.OrderId">
+                                    View
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center">No deliveries found</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

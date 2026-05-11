@@ -1,0 +1,62 @@
+@model FoodDelivery.MVC.Models.MyDeliveriesViewModel
+
+@{
+    ViewData["Title"] = "My Deliveries";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">My Deliveries</h2>
+
+    <form asp-controller="Driver" asp-action="MyDeliveries" method="get" class="row mb-3">
+        <div class="col-md-4">
+            <label class="form-label">Enter Driver Id</label>
+            <input type="number" name="driverId" value="@Model.DriverId" class="form-control" placeholder="Example: 1" />
+        </div>
+
+        <div class="col-md-2 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary w-100">Search</button>
+        </div>
+    </form>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Order Id</th>
+                <th>Order Date</th>
+                <th>Customer Id</th>
+                <th>Restaurant Id</th>
+                <th>Status</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Deliveries.Any())
+            {
+                foreach (var item in Model.Deliveries)
+                {
+                    <tr>
+                        <td>@item.OrderId</td>
+                        <td>@(item.OrderDate?.ToString("dd-MM-yyyy hh:mm tt") ?? "-")</td>
+                        <td>@(item.CustomerId?.ToString() ?? "-")</td>
+                        <td>@(item.RestaurantId?.ToString() ?? "-")</td>
+                        <td>@(item.OrderStatus ?? "-")</td>
+                        <td>
+                            <a class="btn btn-sm btn-primary"
+                                   asp-controller="Driver"
+                                   asp-action="DeliveryDetails"
+                                   asp-route-id="@item.OrderId">
+                                View
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6" class="text-center">No deliveries found</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

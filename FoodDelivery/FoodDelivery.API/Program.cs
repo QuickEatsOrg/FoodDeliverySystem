@@ -1,72 +1,114 @@
+using System.Text;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using FoodDelivery.API.Data;
+using FoodDelivery.API.Helpers;
 using FoodDelivery.API.Mappings;
-using FoodDelivery.API.Models;
 using FoodDelivery.API.Repositories;
 using FoodDelivery.API.Repositories.Implementations;
+using FoodDelivery.API.Repositories.Implementations.Tushar;
+using FoodDelivery.API.Repositories.Interfaces.Tushar;
 using FoodDelivery.API.Services.Implementations.Neha;
+using FoodDelivery.API.Services.Implementations.Tushar;
 using FoodDelivery.API.Services.Interfaces.Neha;
+using FoodDelivery.API.Services.Interfaces.Tushar;
 using FoodDelivery.API.Validations.Neha;
+using FoodDelivery.API.Validators.Tushar;
 using FoodService.Middleware;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
+
 var builder = WebApplication.CreateBuilder(args);
-
-//// Add services to the container.
-
-builder.Services.AddDbContext<FoodDeliveryDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection")));
-
-builder.Services.AddScoped<ICouponRepository, CouponRepository>();
-
-builder.Services.AddScoped<ICouponService, CouponService>();
-
-builder.Services.AddScoped<IRatingRepository, RatingRepository>();
-
-builder.Services.AddScoped<IRatingService, RatingService>();
 
 builder.Services.AddControllers();
 
-builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddDbContext<FoodDeliveryDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddValidatorsFromAssemblyContaining<CreateCouponDtoValidator>();
-
-builder.Services.AddEndpointsApiExplorer();
-
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddAutoMapper(typeof(MappingProfile));
-builder.Services.AddFluentValidationAutoValidation();
-
-builder.Services.AddValidatorsFromAssemblyContaining<CreateCouponDtoValidator>();
-var app = builder.Build();
-
-// Global Exception Handling
-
-app.UseExceptionHandler(errorApp =>
+builder.Services.AddCors(options =>
 {
-    errorApp.Run(async context =>
+    options.AddPolicy("AllowMvc", policy =>
     {
-        context.Response.StatusCode = 500;
-
-        context.Response.ContentType = "text/plain";
-
-        await context.Response.WriteAsync(
-            "An unexpected error occurred.");
+        policy.WithOrigins("https://localhost:7056")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     });
 });
 
-// Configure middleware
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateDriverDtoValidator>();
 
-app.UseSwagger();
+builder.Services.AddEndpointsApiExplorer();
 
-app.UseSwaggerUI();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Enter token like this: Bearer your_token_here"
+    });
+
+    
+});
+
+var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+var secretKey = jwtSettings["SecretKey"];
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidAudience = jwtSettings["Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey!))
+    };
+});
+
+builder.Services.AddAuthorization();
+
+builder.Services.AddScoped<JwtHelper>();
+
+builder.Services.AddScoped<IDriverRepository, DriverRepository>();
+builder.Services.AddScoped<IDeliveryRepository, DeliveryRepository>();
+builder.Services.AddScoped<ICouponRepository, CouponRepository>();
+builder.Services.AddScoped<IRatingRepository, RatingRepository>();
+
+builder.Services.AddScoped<IDriverService, DriverService>();
+builder.Services.AddScoped<IDeliveryService, DeliveryService>();
+builder.Services.AddScoped<IDriverAuthService, DriverAuthService>();
+builder.Services.AddScoped<ICouponService, CouponService>();
+builder.Services.AddScoped<IRatingService, RatingService>();
+
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.UseHttpsRedirection();
 app.UseMiddleware<ExceptionMiddleware>();
-
+app.UseCors("AllowMvc");
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

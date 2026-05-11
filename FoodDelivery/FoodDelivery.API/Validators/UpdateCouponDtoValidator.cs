@@ -1,11 +1,11 @@
-using FluentValidation;
+﻿using FluentValidation;
 using FoodDelivery.API.DTOs.Neha;
 
 namespace FoodDelivery.API.Validations.Neha
 {
-    public class CreateCouponDtoValidator : AbstractValidator<CreateCouponDto>
+    public class UpdateCouponDtoValidator : AbstractValidator<UpdateCouponDto>
     {
-        public CreateCouponDtoValidator()
+        public UpdateCouponDtoValidator()
         {
             RuleFor(x => x.CouponCode)
                 .NotEmpty()

@@ -1,9 +1,7 @@
-namespace FoodDelivery.API.DTOs.Neha
+﻿namespace FoodDelivery.API.DTOs.Neha
 {
-    public class CouponDtos
+    public class CreateCouponDto
     {
-        public int CouponId { get; set; }
-
         public string? CouponCode { get; set; }
 
         public decimal? DiscountAmount { get; set; }

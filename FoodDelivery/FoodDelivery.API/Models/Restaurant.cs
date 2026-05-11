@@ -28,4 +28,5 @@ public partial class Restaurant
     public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
 
     public virtual Role Role { get; set; } = null!;
+
 }

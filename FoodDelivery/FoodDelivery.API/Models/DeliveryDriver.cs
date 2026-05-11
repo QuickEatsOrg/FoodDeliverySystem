@@ -17,6 +17,7 @@ public partial class DeliveryDriver
 
     public string? DriverUnhashedPassword { get; set; }
 
+
     public string? DriverHashedPassword { get; set; }
 
     public int RoleId { get; set; }

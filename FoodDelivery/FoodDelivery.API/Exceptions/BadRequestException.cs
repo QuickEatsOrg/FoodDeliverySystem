@@ -1,12 +1,11 @@
-using System;
-
-namespace FoodDelivery.API.Exceptions;
-
-public class BadRequestException : Exception
+namespace FoodService.Exceptions
 {
-    public BadRequestException(){}
-    public BadRequestException(string message) : base(message){ }
-
-    public BadRequestException(string message, Exception inner): base(message, inner){ }
+    public class BadRequestException : Exception
+    {
+        public BadRequestException(string message)
+            : base(message)
+        {
+        }
+    }
 }
 

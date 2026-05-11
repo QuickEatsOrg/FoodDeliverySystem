@@ -38,15 +38,18 @@ public partial class FoodDeliveryDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=.\\sqlexpress;Database=foodserviceCopy;Trusted_Connection=True;TrustServerCertificate=True;");
+
+        => optionsBuilder.UseSqlServer("Server=.\\sqlexpress;Database=foodservice;Trusted_Connection=True;TrustServerCertificate=True;");
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Coupon>(entity =>
         {
-            entity.HasKey(e => e.CouponId).HasName("PK__Coupons__58CF6389DBA0CA69");
+            entity.HasKey(e => e.CouponId).HasName("PK__Coupons__58CF6389A0DC4FC2");
 
-            entity.HasIndex(e => e.CouponCode, "UQ__Coupons__ADE5CBB7432F2B04").IsUnique();
+            entity.HasIndex(e => e.CouponCode, "UQ__Coupons__ADE5CBB7B52281A0").IsUnique();
+
 
             entity.Property(e => e.CouponId)
                 .ValueGeneratedNever()
@@ -63,7 +66,8 @@ public partial class FoodDeliveryDbContext : DbContext
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__CD65CB853A795D05");
+            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__CD65CB85012D19C9");
+
 
             entity.Property(e => e.CustomerId).HasColumnName("customer_id");
             entity.Property(e => e.CustomerEmail)
@@ -98,7 +102,8 @@ public partial class FoodDeliveryDbContext : DbContext
 
         modelBuilder.Entity<DeliveryAddress>(entity =>
         {
-            entity.HasKey(e => e.AddressId).HasName("PK__Delivery__CAA247C8DF01B268");
+            entity.HasKey(e => e.AddressId).HasName("PK__Delivery__CAA247C8DC62A9F5");
+
 
             entity.Property(e => e.AddressId)
                 .ValueGeneratedNever()
@@ -132,7 +137,8 @@ public partial class FoodDeliveryDbContext : DbContext
 
         modelBuilder.Entity<DeliveryDriver>(entity =>
         {
-            entity.HasKey(e => e.DriverId).HasName("PK__Delivery__A411C5BDD7FDF364");
+            entity.HasKey(e => e.DriverId).HasName("PK__Delivery__A411C5BDD67AA9DC");
+
 
             entity.Property(e => e.DriverId).HasColumnName("driver_id");
             entity.Property(e => e.DriverEmail)
@@ -171,7 +177,7 @@ public partial class FoodDeliveryDbContext : DbContext
 
         modelBuilder.Entity<MenuItem>(entity =>
         {
-            entity.HasKey(e => e.ItemId).HasName("PK__MenuItem__52020FDD3A64F102");
+            entity.HasKey(e => e.ItemId).HasName("PK__MenuItem__52020FDDF3C6219B");
 
             entity.Property(e => e.ItemId)
                 .ValueGeneratedNever()
@@ -195,7 +201,8 @@ public partial class FoodDeliveryDbContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrderId).HasName("PK__Orders__46596229EF5E3EBB");
+            entity.HasKey(e => e.OrderId).HasName("PK__Orders__46596229141454D7");
+
 
             entity.Property(e => e.OrderId)
                 .ValueGeneratedNever()
@@ -236,7 +243,8 @@ public partial class FoodDeliveryDbContext : DbContext
                         .HasConstraintName("FK__OrdersCou__order__73BA3083"),
                     j =>
                     {
-                        j.HasKey("OrderId", "CouponId").HasName("PK__OrdersCo__C3D59411942AEFD2");
+                        j.HasKey("OrderId", "CouponId").HasName("PK__OrdersCo__C3D59411CB0F95F2");
+
                         j.ToTable("OrdersCoupons");
                         j.IndexerProperty<int>("OrderId").HasColumnName("order_id");
                         j.IndexerProperty<int>("CouponId").HasColumnName("coupon_id");
@@ -245,7 +253,9 @@ public partial class FoodDeliveryDbContext : DbContext
 
         modelBuilder.Entity<OrderItem>(entity =>
         {
-            entity.HasKey(e => e.OrderItemId).HasName("PK__OrderIte__3764B6BC73AAA034");
+
+            entity.HasKey(e => e.OrderItemId).HasName("PK__OrderIte__3764B6BC6D246243");
+
 
             entity.Property(e => e.OrderItemId)
                 .ValueGeneratedNever()
@@ -265,7 +275,8 @@ public partial class FoodDeliveryDbContext : DbContext
 
         modelBuilder.Entity<Rating>(entity =>
         {
-            entity.HasKey(e => e.RatingId).HasName("PK__Ratings__D35B278BA6B8EAFC");
+            entity.HasKey(e => e.RatingId).HasName("PK__Ratings__D35B278B68DAD1A8");
+
 
             entity.Property(e => e.RatingId)
                 .ValueGeneratedNever()
@@ -288,7 +299,8 @@ public partial class FoodDeliveryDbContext : DbContext
 
         modelBuilder.Entity<Restaurant>(entity =>
         {
-            entity.HasKey(e => e.RestaurantId).HasName("PK__Restaura__3B0FAA918A944CF4");
+            entity.HasKey(e => e.RestaurantId).HasName("PK__Restaura__3B0FAA916675935C");
+
 
             entity.Property(e => e.RestaurantId).HasColumnName("restaurant_id");
             entity.Property(e => e.RestaurantAddress)
@@ -327,9 +339,11 @@ public partial class FoodDeliveryDbContext : DbContext
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.RoleId).HasName("PK__Roles__760965CC64B20672");
 
-            entity.HasIndex(e => e.RoleName, "UQ__Roles__783254B1DB41B725").IsUnique();
+            entity.HasKey(e => e.RoleId).HasName("PK__Roles__760965CC34665E2A");
+
+            entity.HasIndex(e => e.RoleName, "UQ__Roles__783254B1267D962D").IsUnique();
+
 
             entity.Property(e => e.RoleId)
                 .ValueGeneratedNever()

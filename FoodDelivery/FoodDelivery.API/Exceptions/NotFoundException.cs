@@ -1,3 +1,4 @@
+
 using System;
 
 namespace FoodDelivery.API.Exceptions;
@@ -13,3 +14,4 @@ public class NotFoundException : Exception
 
 
 }
+

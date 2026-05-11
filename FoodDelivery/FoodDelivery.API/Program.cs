@@ -1,75 +1,75 @@
+using System.Text;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using FoodDelivery.API.Data;
-using FoodDelivery.API.Exceptions;
-using FoodDelivery.API.Mapper;
-using FoodDelivery.API.Models;
-using FoodDelivery.API.Repositories.Implementations.Sanjana;
-using FoodDelivery.API.Repositories.Interfaces.Sanjana;
-using FoodDelivery.API.Services.Implementations.Sanjana;
-using FoodDelivery.API.Services.Interfaces.Sanjana;
-using FoodDelivery.API.Validators;
+using FoodDelivery.API.Helpers;
+using FoodDelivery.API.Repositories.Implementations.Tushar;
+using FoodDelivery.API.Repositories.Interfaces.Tushar;
+using FoodDelivery.API.Services.Implementations.Tushar;
+using FoodDelivery.API.Services.Interfaces.Tushar;
+using FoodDelivery.API.Validators.Tushar;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Serilog;
-using System.Text;
-
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services
 builder.Services.AddControllers();
 
-//sanjana{start
-Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Information()
-    .WriteTo.Console()
-    .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
-    .CreateLogger();
-
-builder.Host.UseSerilog();
-
 builder.Services.AddDbContext<FoodDeliveryDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? throw new NotFoundException("Connection string not found")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddFluentValidationAutoValidation();
-
-builder.Services.AddScoped<IPasswordHasher<Customer>, PasswordHasher<Customer>>();
-
-builder.Services.AddScoped<IPasswordHasher<DeliveryDriver>, PasswordHasher<DeliveryDriver>>();
-
-builder.Services.AddScoped<IPasswordHasher<Restaurant>, PasswordHasher<Restaurant>>();
-
-builder.Services.AddValidatorsFromAssemblyContaining<RegisterCustomerDtoValidator>();
-
-builder.Services.AddScoped<ICustomerService, CustomerService>();
-
-builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
-
-builder.Services.AddScoped<IAddressService, AddressService>();
-
-builder.Services.AddScoped<IAddressRepository, AddressRepository>();
-
-builder.Services.AddScoped<IAuthService, AuthService>();
-
-builder.Services.AddAutoMapper(options =>
+builder.Services.AddCors(options =>
 {
-    options.AddProfile<CustomerProfile>();
-    options.AddProfile<AddressProfile>();
-    options.AddProfile<AuthProfile>();
+    options.AddPolicy("AllowMvc", policy =>
+    {
+        policy.WithOrigins("https://localhost:7056")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
 });
 
-// JWT Authentication
-var jwtSettings = builder.Configuration.GetSection("Jwt");
-var key = Encoding.ASCII.GetBytes(jwtSettings["Key"]!);
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateDriverDtoValidator>();
+
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Enter token like this: Bearer your_token_here"
+    });
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
+
+var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+var secretKey = jwtSettings["SecretKey"];
 
 builder.Services.AddAuthentication(options =>
 {
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    //options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    //options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
 .AddJwtBearer(options =>
 {
@@ -79,31 +79,27 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
+
         ValidIssuer = jwtSettings["Issuer"],
         ValidAudience = jwtSettings["Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(key)
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey!))
     };
 });
 
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
-    options.AddPolicy("CustomerOnly", policy => policy.RequireRole("Customer"));
-    options.AddPolicy("DriverOnly", policy => policy.RequireRole("DeliveryDriver"));
-    options.AddPolicy("RestaurantOnly", policy => policy.RequireRole("Restaurant"));
-});
-//sanjana }end
+builder.Services.AddAuthorization();
 
-// Swagger
+builder.Services.AddScoped<JwtHelper>();
 
-builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IDriverRepository, DriverRepository>();
+builder.Services.AddScoped<IDeliveryRepository, DeliveryRepository>();
+// builder.Services.AddScoped<IMenuItemRepository, MenuItemRepository>();
 
-builder.Services.AddEndpointsApiExplorer();
-
+builder.Services.AddScoped<IDriverService, DriverService>();
+builder.Services.AddScoped<IDeliveryService, DeliveryService>();
+builder.Services.AddScoped<IDriverAuthService, DriverAuthService>();
 
 var app = builder.Build();
 
-// Configure pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -112,6 +108,8 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowMvc");
 
 app.UseAuthentication();
 app.UseAuthorization();

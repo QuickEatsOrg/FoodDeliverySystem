@@ -1,5 +1,5 @@
 
-namespace FoodService.Exceptions
+namespace FoodDelivery.API.Exceptions
 {
     public class UnauthorizedException : Exception
     {

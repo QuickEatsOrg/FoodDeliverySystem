@@ -1,7 +1,7 @@
 ﻿using System.Net;
-using FoodService.Exceptions;
+using FoodDelivery.API.Exceptions;
 
-namespace FoodService.Middleware
+namespace FoodDelivery.API.Middleware
 {
     public class ExceptionMiddleware
     {

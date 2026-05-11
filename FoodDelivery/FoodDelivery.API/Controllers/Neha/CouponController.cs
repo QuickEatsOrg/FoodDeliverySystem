@@ -69,13 +69,5 @@ namespace FoodDelivery.API.Controllers.Neha
             return Ok("Coupon is valid");
         }
 
-        // url: api/coupon/usage-stats
-        [HttpGet("usage-stats")]
-        public async Task<IActionResult> GetCouponUsageStats()
-        {
-            var stats = await _couponService.GetCouponUsageStatsAsync();
-
-            return Ok(stats);
-        }
     }
 }

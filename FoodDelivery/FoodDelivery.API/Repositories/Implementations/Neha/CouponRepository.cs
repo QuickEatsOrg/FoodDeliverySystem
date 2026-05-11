@@ -1,3 +1,4 @@
+using FoodDelivery.API.Data;
 using FoodDelivery.API.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -42,13 +43,6 @@ namespace FoodDelivery.API.Repositories.Implementations
                 c.ExpiryDate >= DateOnly.FromDateTime(DateTime.Now));
         }
 
-        public async Task<object> GetCouponUsageStatsAsync()
-        {
-            return await Task.FromResult(new
-            {
-                Message = "Usage stats feature not implemented yet"
-            });
-        }
         public async Task<int> GetNextCouponIdAsync()
         {
             if (!await _context.Coupons.AnyAsync())

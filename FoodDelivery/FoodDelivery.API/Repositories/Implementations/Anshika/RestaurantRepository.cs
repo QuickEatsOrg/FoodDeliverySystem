@@ -1,3 +1,4 @@
+using FoodDelivery.API.Data;
 using FoodDelivery.API.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -5,38 +6,38 @@ namespace FoodDelivery.API.Repositories;
 
 public class RestaurantRepository : IRestaurantRepository
 {
-    private readonly FoodDeliveryDbContext _dbcontext;
+    private readonly FoodDeliveryDbContext _context;
 
     public RestaurantRepository(FoodDeliveryDbContext dbcontext)
     {
-        _dbcontext = dbcontext;
+        _context = dbcontext;
     }
 
     public async Task<IEnumerable<Restaurant>> GetAllAsync()
     {
-        return await _dbcontext.Restaurants.ToListAsync();
+        return await _context.Restaurants.ToListAsync();
     }
 
     public async Task<Restaurant?> GetByIdAsync(int id)
     {
-        return await _dbcontext.Restaurants.FindAsync(id);
+        return await _context.Restaurants.FindAsync(id);
     }
 
     public async Task AddAsync(Restaurant restaurant)
     {
-        await _dbcontext.Restaurants.AddAsync(restaurant);
-        await _dbcontext.SaveChangesAsync();
+        await _context.Restaurants.AddAsync(restaurant);
+        await _context.SaveChangesAsync();
     }
 
     public async Task UpdateAsync(Restaurant restaurant)
     {
-        _dbcontext.Restaurants.Update(restaurant);
-        await _dbcontext.SaveChangesAsync();
+        _context.Restaurants.Update(restaurant);
+        await _context.SaveChangesAsync();
     }
 
     public async Task<IEnumerable<MenuItem>> GetByRestaurantIdAsync(int restaurantId)
     {
-    return await _dbcontext.MenuItems
+    return await _context.MenuItems
         .Where(m => m.RestaurantId == restaurantId)
         .ToListAsync();
     }

@@ -16,7 +16,5 @@ namespace FoodDelivery.API.Services.Interfaces.Neha
         Task<string> AddAsync(CreateCouponDto couponDto);
 
         Task<string> UpdateAsync(int couponId, UpdateCouponDto couponDto);
-
-        Task<object> GetCouponUsageStatsAsync();
     }
 }

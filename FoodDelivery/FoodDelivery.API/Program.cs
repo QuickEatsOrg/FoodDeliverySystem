@@ -1,33 +1,40 @@
-using System.Text;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using FoodDelivery.API.Data;
+using FoodDelivery.API.Exceptions;
+using FoodDelivery.API.Filters;
 using FoodDelivery.API.Helpers;
+using FoodDelivery.API.Mappings;
+using FoodDelivery.API.Middleware;
+using FoodDelivery.API.Models;
+using FoodDelivery.API.Repositories;
 using FoodDelivery.API.Repositories.Implementations;
+using FoodDelivery.API.Repositories.Implementations.Neha;
+using FoodDelivery.API.Repositories.Implementations.Sahil;
 using FoodDelivery.API.Repositories.Implementations.Tushar;
+using FoodDelivery.API.Repositories.Interfaces.Sahil;
 using FoodDelivery.API.Repositories.Interfaces.Tushar;
+using FoodDelivery.API.Services;
 using FoodDelivery.API.Services.Implementations.Neha;
+using FoodDelivery.API.Services.Implementations.Sahil;
 using FoodDelivery.API.Services.Implementations.Tushar;
 using FoodDelivery.API.Services.Interfaces.Neha;
+using FoodDelivery.API.Services.Interfaces.Sahil;
 using FoodDelivery.API.Services.Interfaces.Tushar;
 using FoodDelivery.API.Validations.Neha;
 using FoodDelivery.API.Validators.Tushar;
-using FoodService.Middleware;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
-
-using FoodDelivery.API.Repositories;
-using FoodDelivery.API.Services;
-using FoodDelivery.API.Mappings;
-using Microsoft.EntityFrameworkCore;
-using FoodDelivery.API.Models;
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using FoodDelivery.API.Exceptions;
-using FoodDelivery.API.Filters;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<GlobalExceptionFilter>();
+});
 
 builder.Services.AddDbContext<FoodDeliveryDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -43,9 +50,10 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddFluentValidationAutoValidation();
-builder.Services.AddValidatorsFromAssemblyContaining<CreateDriverDtoValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
 var secretKey = jwtSettings["SecretKey"];
@@ -71,50 +79,56 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
+// ── AutoMapper ────────────────────────────────────────────────────────────
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+// ── Helpers ───────────────────────────────────────────────────────────────
 builder.Services.AddScoped<JwtHelper>();
 
+// ── Session (required by CartRepository) ─────────────────────────────────
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromHours(1);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+// ── HTTP Client (CartService / OrderService call other APIs) ──────────────
+builder.Services.AddHttpClient();
+
+// ── Tushar's services ─────────────────────────────────────────────────────
 builder.Services.AddScoped<IDriverRepository, DriverRepository>();
 builder.Services.AddScoped<IDeliveryRepository, DeliveryRepository>();
-builder.Services.AddScoped<ICouponRepository, CouponRepository>();
-builder.Services.AddScoped<IRatingRepository, RatingRepository>();
-
 builder.Services.AddScoped<IDriverService, DriverService>();
 builder.Services.AddScoped<IDeliveryService, DeliveryService>();
 builder.Services.AddScoped<IDriverAuthService, DriverAuthService>();
+
+// ── Neha's services ───────────────────────────────────────────────────────
+builder.Services.AddScoped<ICouponRepository, CouponRepository>();
+builder.Services.AddScoped<IRatingRepository, RatingRepository>();
 builder.Services.AddScoped<ICouponService, CouponService>();
 builder.Services.AddScoped<IRatingService, RatingService>();
 
-builder.Services.AddAutoMapper(typeof(MappingProfile));
-
-// Add services
-builder.Services.AddControllers(options =>
-{
-    options.Filters.Add<GlobalExceptionFilter>();
-});
-builder.Services.AddFluentValidationAutoValidation();
-builder.Services.AddValidatorsFromAssemblyContaining<Program>();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-
-// Database connection
-builder.Services.AddDbContext<FoodDeliveryDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection")
-    ));
-
-// AutoMapper
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-// Dependency Injection
+// ── Anshika's services ────────────────────────────────────────────────────
 builder.Services.AddScoped<IRestaurantRepository, RestaurantRepository>();
 builder.Services.AddScoped<IRestaurantService, RestaurantService>();
 builder.Services.AddScoped<IMenuItemRepository, MenuItemRepository>();
 builder.Services.AddScoped<IMenuItemService, MenuItemService>();
 
- var app = builder.Build();
+// ── SAHIL's services – Cart, Order, Payment ───────────────────────────────
+builder.Services.AddScoped<ICartRepository, CartRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 
-// Configure middleware
+builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+
+// ─────────────────────────────────────────────────────────────────────────
+var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
@@ -125,16 +139,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseCors("AllowMvc");
+
+// Session MUST come before Authentication
+app.UseSession();
+
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapControllers();
-
-
-app.UseAuthorization();
 
 app.MapControllers();
-
- app.Run();
 
 app.Run();
-

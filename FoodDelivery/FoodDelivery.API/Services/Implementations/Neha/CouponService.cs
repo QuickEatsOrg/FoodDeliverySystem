@@ -3,7 +3,7 @@ using FoodDelivery.API.DTOs.Neha;
 using FoodDelivery.API.Models;
 using FoodDelivery.API.Repositories;
 using FoodDelivery.API.Services.Interfaces.Neha;
-using FoodService.Exceptions;
+using FoodDelivery.API.Exceptions;
 
 namespace FoodDelivery.API.Services.Implementations.Neha
 {
@@ -105,11 +105,6 @@ namespace FoodDelivery.API.Services.Implementations.Neha
             await _couponRepository.SaveChangesAsync();
 
             return "Coupon updated successfully";
-        }
-
-        public async Task<object> GetCouponUsageStatsAsync()
-        {
-            return await _couponRepository.GetCouponUsageStatsAsync();
         }
     }
 }

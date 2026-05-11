@@ -1,7 +1,8 @@
+using FoodDelivery.API.Data;
 using FoodDelivery.API.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FoodDelivery.API.Repositories.Implementations
+namespace FoodDelivery.API.Repositories.Implementations.Neha
 {
     public class RatingRepository : IRatingRepository
     {

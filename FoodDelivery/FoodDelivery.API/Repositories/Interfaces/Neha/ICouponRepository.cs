@@ -8,7 +8,6 @@ public interface ICouponRepository
     Task<IEnumerable<Coupon>> GetAllCouponsAsync();
     Task<Coupon?> GetByCodeAsync(string couponCode);
     Task<bool> ValidateCouponAsync(string couponCode);
-    Task<Object> GetCouponUsageStatsAsync();
     Task<int> GetNextCouponIdAsync();
     Task AddAsync(Coupon coupon);
     Task UpdateAsync(Coupon coupon);

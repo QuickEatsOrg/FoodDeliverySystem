@@ -3,7 +3,7 @@ using FoodDelivery.API.DTOs.Neha;
 using FoodDelivery.API.Models;
 using FoodDelivery.API.Repositories;
 using FoodDelivery.API.Services.Interfaces.Neha;
-using FoodService.Exceptions;
+using FoodDelivery.API.Exceptions;
 
 namespace FoodDelivery.API.Services.Implementations.Neha
 {

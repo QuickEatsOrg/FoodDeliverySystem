@@ -1,0 +1,24 @@
+@model FoodDelivery.MVC.ViewModel.AdminDashboardViewModel
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="dashboard-heading">
+    <div>
+        <p class="eyebrow">Admin</p>
+        <h1>QuickBite overview</h1>
+    </div>
+</div>
+
+@if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+{
+    <div class="alert alert-warning">@Model.ErrorMessage</div>
+}
+
+<div class="row g-3">
+    <div class="col-md-3"><a class="summary-card" asp-action="Customers"><span>Total customers</span><strong>@Model.TotalCustomers</strong></a></div>
+    <div class="col-md-3"><a class="summary-card" asp-action="Restaurants"><span>Total restaurants</span><strong>@Model.TotalRestaurants</strong></a></div>
+    <div class="col-md-3"><a class="summary-card" asp-action="Drivers"><span>Total delivery drivers</span><strong>@Model.TotalDeliveryDrivers</strong></a></div>
+    <div class="col-md-3"><a class="summary-card" asp-action="Orders"><span>Total orders</span><strong>@Model.TotalOrders</strong></a></div>
+</div>

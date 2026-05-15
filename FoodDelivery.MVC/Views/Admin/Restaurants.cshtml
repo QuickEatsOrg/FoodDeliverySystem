@@ -1,0 +1,20 @@
+@model List<FoodDelivery.MVC.DTOs.RestaurantDto>
+
+@{
+    ViewData["Title"] = "Restaurants";
+}
+
+<h1>Restaurants</h1>
+@if (!Model.Any())
+{
+    <section class="empty-state">No restaurants found.</section>
+}
+else
+{
+    <div class="table-responsive"><table class="table align-middle"><thead><tr><th>Name</th><th>Address</th><th>Email</th><th>Phone</th></tr></thead><tbody>
+    @foreach (var item in Model)
+    {
+        <tr><td>@item.RestaurantName</td><td>@item.RestaurantAddress</td><td>@item.RestaurantEmail</td><td>@item.RestaurantPhone</td></tr>
+    }
+    </tbody></table></div>
+}

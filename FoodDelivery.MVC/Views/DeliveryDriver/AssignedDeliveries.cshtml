@@ -1,0 +1,35 @@
+@model FoodDelivery.MVC.ViewModel.DriverDashboardViewModel
+
+@{
+    ViewData["Title"] = "Assigned Deliveries";
+}
+
+<div class="dashboard-heading">
+    <div>
+        <p class="eyebrow">Delivery Driver</p>
+        <h1>Assigned deliveries</h1>
+    </div>
+</div>
+
+@if (!Model.Deliveries.Any())
+{
+    <section class="empty-state">No assigned deliveries found.</section>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-md-2 g-3">
+        @foreach (var delivery in Model.Deliveries)
+        {
+            <div class="col">
+                <a class="card h-100 delivery-card" asp-action="Details" asp-route-id="@delivery.DeliveryId">
+                    <div class="card-body">
+                        <span class="badge text-bg-secondary">@delivery.Status</span>
+                        <h2 class="h5 mt-3">Delivery #@delivery.DeliveryId</h2>
+                        <p class="text-muted mb-1">@delivery.Pickup</p>
+                        <p class="text-muted mb-0">@delivery.Dropoff</p>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+}

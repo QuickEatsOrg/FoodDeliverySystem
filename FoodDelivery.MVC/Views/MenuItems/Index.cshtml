@@ -1,0 +1,97 @@
+@model FoodDelivery.MVC.ViewModel.MenuItemsPageViewModel
+
+@{
+    ViewData["Title"] = "Food Items";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+        <h1 class="mb-1">Food Items</h1>
+        <p class="text-muted mb-0">Discover dishes from nearby restaurants.</p>
+    </div>
+</div>
+
+<form asp-action="Index" method="get" class="mb-4">
+    <input name="search"
+           value="@Model.SearchTerm"
+           class="form-control form-control-lg"
+           placeholder="Search by restaurant, cuisine or dish" />
+</form>
+
+@if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+
+@if (!Model.Items.Any())
+{
+    <p>No matching food items found.</p>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-md-2 g-3">
+        @foreach (var item in Model.Items)
+        {
+            <div class="col">
+                <div class="card h-100 menu-card food-card" data-details-url="@Url.Action("Details", "MenuItems", new { id = item.ItemId })" tabindex="0" role="link" aria-label="View @item.ItemName details">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between gap-3">
+                            <div class="food-card-main">
+                                <h5 class="card-title mb-1">@item.RestaurantName</h5>
+                                <div class="text-muted text-truncate">@item.CuisineCategory, @item.ItemName</div>
+                                @if (!string.IsNullOrWhiteSpace(item.RestaurantAddress))
+                                {
+                                    <div class="text-muted text-truncate">@item.RestaurantAddress</div>
+                                }
+                            </div>
+                            <div class="food-card-side text-end">
+                                @if (item.AverageRating.HasValue)
+                                {
+                                    <span class="rating-badge">@item.AverageRating.Value.ToString("0.0") rating</span>
+                                }
+                                else
+                                {
+                                    <div class="text-muted small">No ratings yet</div>
+                                }
+                                <div class="price-text mt-2">@item.ItemPrice.ToString("C")</div>
+                            </div>
+                        </div>
+
+                        @if (!string.IsNullOrWhiteSpace(item.ItemDescription))
+                        {
+                            <p class="card-text text-muted mt-3 mb-3">@item.ItemDescription</p>
+                        }
+
+                        @if (item.Quantity == 0)
+                        {
+                            <form asp-action="UpdateQuantity" method="post" class="menu-card-actions">
+                                <input type="hidden" name="itemId" value="@item.ItemId" />
+                                <input type="hidden" name="change" value="1" />
+                                <input type="hidden" name="returnUrl" value="@Context.Request.Path@Context.Request.QueryString" />
+                                <button type="submit" class="btn btn-primary">Add</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <div class="d-flex align-items-center gap-2 menu-card-actions">
+                                <form asp-action="UpdateQuantity" method="post">
+                                    <input type="hidden" name="itemId" value="@item.ItemId" />
+                                    <input type="hidden" name="change" value="-1" />
+                                    <input type="hidden" name="returnUrl" value="@Context.Request.Path@Context.Request.QueryString" />
+                                    <button type="submit" class="btn btn-outline-secondary">-</button>
+                                </form>
+                                <span>@item.Quantity</span>
+                                <form asp-action="UpdateQuantity" method="post">
+                                    <input type="hidden" name="itemId" value="@item.ItemId" />
+                                    <input type="hidden" name="change" value="1" />
+                                    <input type="hidden" name="returnUrl" value="@Context.Request.Path@Context.Request.QueryString" />
+                                    <button type="submit" class="btn btn-outline-secondary" @(item.Quantity >= 10 ? "disabled" : "")>+</button>
+                                </form>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

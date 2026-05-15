@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="home-hero">
+    <div class="hero-copy">
+        <p class="eyebrow">Fast local food delivery</p>
+        <h1>QuickBite</h1>
+        <p class="lead">Browse restaurants, discover dishes, and manage delivery workflows from one clean MVC experience.</p>
+        <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-primary btn-lg" asp-controller="MenuItems" asp-action="Index">Order food</a>
+            <a class="btn btn-outline-dark btn-lg" asp-controller="Restaurants" asp-action="Index">Browse restaurants</a>
+        </div>
+    </div>
+</section>
+
+<section class="row g-4 mt-4">
+    <div class="col-md-4">
+        <a class="role-card" asp-controller="Customer" asp-action="Login">
+            <span class="role-kicker">Customer</span>
+            <h2>Find your next meal</h2>
+            <p>Search by restaurant, cuisine, or dish and start an order from polished food detail pages.</p>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a class="role-card" asp-controller="Restaurants" asp-action="Login">
+            <span class="role-kicker">Restaurant</span>
+            <h2>Manage your menu</h2>
+            <p>View restaurant details, add items, edit prices, and track incoming order placeholders.</p>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a class="role-card" asp-controller="DeliveryDriver" asp-action="Login">
+            <span class="role-kicker">Delivery Driver</span>
+            <h2>Track deliveries</h2>
+            <p>Review assigned delivery cards and status states for pending, picked up, and delivered work.</p>
+        </a>
+    </div>
+</section>

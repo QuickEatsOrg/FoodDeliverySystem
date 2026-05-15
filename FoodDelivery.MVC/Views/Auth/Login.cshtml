@@ -1,0 +1,57 @@
+@model FoodDelivery.MVC.ViewModel.LoginViewModel
+
+@{
+    ViewData["Title"] = $"{Model.Role} Login";
+}
+
+<div class="auth-wrap">
+    <div>
+        <p class="eyebrow">@Model.Role access</p>
+        <h1>@Model.Role Login</h1>
+        <p class="text-muted">Sign in to continue to your QuickBite dashboard.</p>
+    </div>
+    <form asp-controller="@GetController(Model.Role)" asp-action="Login" method="post" class="auth-card">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+        <input type="hidden" asp-for="Role" />
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label"></label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <button class="btn btn-primary w-100" type="submit">Login</button>
+        @if (Model.Role == "Customer")
+        {
+            <a class="btn btn-link w-100 mt-2" asp-controller="Customer" asp-action="Register">Create customer account</a>
+        }
+        @if (Model.Role == "Restaurant")
+        {
+            <a class="btn btn-link w-100 mt-2" asp-controller="Restaurants" asp-action="Register">Register restaurant</a>
+        }
+        @if (Model.Role == "DeliveryDriver")
+        {
+            <a class="btn btn-link w-100 mt-2" asp-controller="DeliveryDriver" asp-action="Register">Register as driver</a>
+        }
+    </form>
+</div>
+
+@functions {
+    private static string GetController(string role)
+    {
+        return role switch
+        {
+            "Admin" => "Admin",
+            "Restaurant" => "Restaurants",
+            "DeliveryDriver" => "DeliveryDriver",
+            _ => "Customer"
+        };
+    }
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

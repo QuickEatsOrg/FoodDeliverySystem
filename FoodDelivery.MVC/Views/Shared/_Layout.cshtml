@@ -1,0 +1,91 @@
+@{
+    var role = Context.Session.GetString("role");
+    var displayName = Context.Session.GetString("displayName");
+    var isLoggedIn = !string.IsNullOrWhiteSpace(role);
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - QuickBite</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FoodDelivery.MVC.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="app-header sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+            <div class="container">
+                <a class="navbar-brand brand-mark" asp-controller="Home" asp-action="Index">
+                    <span class="brand-icon">Q</span>
+                    QuickBite
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse gap-3" id="mainNavbar">
+                    <form class="nav-search mx-lg-auto" asp-controller="MenuItems" asp-action="Index" method="get">
+                        <input class="form-control" name="search" placeholder="Search by restaurant, cuisine or dish" />
+                    </form>
+                    <ul class="navbar-nav align-items-lg-center gap-lg-1">
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="MenuItems" asp-action="Index">Food</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Restaurants" asp-action="Index">Restaurants</a></li>
+                        @if (isLoggedIn && role == "Customer")
+                        {
+                            <li class="nav-item"><a class="nav-link" asp-controller="Customer" asp-action="Dashboard">Customer</a></li>
+                        }
+                        @if (isLoggedIn && role == "Restaurant")
+                        {
+                            <li class="nav-item"><a class="nav-link" asp-controller="Restaurants" asp-action="Dashboard">Restaurant</a></li>
+                        }
+                        @if (isLoggedIn && role == "DeliveryDriver")
+                        {
+                            <li class="nav-item"><a class="nav-link" asp-controller="DeliveryDriver" asp-action="Dashboard">Driver</a></li>
+                        }
+                        @if (isLoggedIn && role == "Admin")
+                        {
+                            <li class="nav-item"><a class="nav-link" asp-controller="Admin" asp-action="Dashboard">Admin</a></li>
+                        }
+                    </ul>
+                    <div class="account-area">
+                        @if (isLoggedIn)
+                        {
+                            <span class="account-pill">@displayName <span>@role</span></span>
+                            <form asp-controller="Auth" asp-action="Logout" method="post">
+                                <button class="btn btn-outline-dark btn-sm" type="submit">Logout</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <a class="btn btn-outline-dark btn-sm" asp-controller="Auth" asp-action="Login">Login</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container page-shell">
+        @if (TempData["SuccessMessage"] is string successMessage)
+        {
+            <div class="alert alert-success">@successMessage</div>
+        }
+        @if (TempData["ErrorMessage"] is string errorMessage)
+        {
+            <div class="alert alert-danger">@errorMessage</div>
+        }
+        @RenderBody()
+    </main>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 QuickBite
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

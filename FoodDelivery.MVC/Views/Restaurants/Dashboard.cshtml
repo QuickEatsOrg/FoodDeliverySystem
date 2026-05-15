@@ -1,0 +1,58 @@
+@model FoodDelivery.MVC.ViewModel.RestaurantDashboardViewModel
+
+@{
+    ViewData["Title"] = "Restaurant Dashboard";
+}
+
+<div class="dashboard-heading">
+    <div>
+        <p class="eyebrow">Restaurant</p>
+        <h1>@(Model.Restaurant?.RestaurantName ?? "Restaurant Dashboard")</h1>
+        <p class="text-muted mb-0">@(Model.Restaurant?.RestaurantAddress ?? "Manage menu items and monitor incoming orders.")</p>
+    </div>
+    @if (Model.Restaurant != null)
+    {
+        <a class="btn btn-primary" asp-controller="MenuItems" asp-action="Manage" asp-route-restaurantId="@Model.Restaurant.RestaurantId">Manage menu</a>
+    }
+</div>
+
+@if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+
+<div class="row g-4">
+    <div class="col-lg-8">
+        <section>
+            <h2 class="h4">Menu items</h2>
+            @if (!Model.MenuItems.Any())
+            {
+                <div class="empty-state">No menu items found.</div>
+            }
+            else
+            {
+                <div class="row row-cols-1 row-cols-md-2 g-3">
+                    @foreach (var item in Model.MenuItems)
+                    {
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="h5">@item.ItemName</h3>
+                                    <p class="text-muted">@item.ItemDescription</p>
+                                    <strong>@item.ItemPrice.ToString("C")</strong>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </section>
+    </div>
+    <div class="col-lg-4">
+        <section class="panel">
+            <h2 class="h4">Incoming orders</h2>
+            <p class="text-muted">No incoming orders yet.</p>
+            <a class="btn btn-outline-dark" asp-action="Orders">View orders</a>
+        </section>
+    </div>
+</div>

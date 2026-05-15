@@ -1,0 +1,35 @@
+@model List<FoodDelivery.MVC.ViewModel.RestaurantCardViewModel>
+
+@{
+    ViewData["Title"] = "Restaurants";
+}
+
+<div class="dashboard-heading">
+    <div>
+        <p class="eyebrow">Explore</p>
+        <h1>Restaurants</h1>
+        <p class="text-muted mb-0">Browse QuickBite partner restaurants.</p>
+    </div>
+</div>
+
+@if (!Model.Any())
+{
+    <section class="empty-state">No restaurants found.</section>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+        @foreach (var restaurant in Model)
+        {
+            <div class="col">
+                <div class="card h-100 menu-card" data-details-url="@Url.Action("Details", "Restaurants", new { id = restaurant.RestaurantId })" tabindex="0" role="link">
+                    <div class="card-body">
+                        <h2 class="h5">@restaurant.RestaurantName</h2>
+                        <p class="text-muted">@restaurant.RestaurantAddress</p>
+                        <span class="rating-badge">New</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

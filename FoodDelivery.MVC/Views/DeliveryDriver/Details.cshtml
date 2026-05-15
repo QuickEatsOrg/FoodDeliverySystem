@@ -1,0 +1,15 @@
+@model FoodDelivery.MVC.ViewModel.DeliveryCardViewModel
+
+@{
+    ViewData["Title"] = "Delivery Details";
+}
+
+<section class="panel">
+    <p class="eyebrow">Delivery details</p>
+    <h1>Delivery #@Model.DeliveryId</h1>
+    <div class="row g-3 mt-2">
+        <div class="col-md-4"><div class="summary-card"><span>Status</span><strong>@Model.Status</strong></div></div>
+        <div class="col-md-4"><div class="summary-card"><span>Pickup</span><strong>@Model.Pickup</strong></div></div>
+        <div class="col-md-4"><div class="summary-card"><span>Dropoff</span><strong>@Model.Dropoff</strong></div></div>
+    </div>
+</section>

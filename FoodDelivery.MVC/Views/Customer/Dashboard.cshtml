@@ -1,0 +1,24 @@
+@model FoodDelivery.MVC.ViewModel.CustomerDashboardViewModel
+
+@{
+    ViewData["Title"] = "Customer Dashboard";
+}
+
+<div class="dashboard-heading">
+    <div>
+        <p class="eyebrow">Customer</p>
+        <h1>Welcome, @Model.Name</h1>
+    </div>
+    <a class="btn btn-primary" asp-controller="MenuItems" asp-action="Index">Browse food</a>
+</div>
+
+<div class="row g-3">
+    <div class="col-md-4"><div class="summary-card"><span>Active orders</span><strong>@Model.ActiveOrders</strong></div></div>
+    <div class="col-md-4"><div class="summary-card"><span>Saved items</span><strong>@Model.SavedItems</strong></div></div>
+    <div class="col-md-4"><div class="summary-card"><span>Rewards</span><strong>Ready</strong></div></div>
+</div>
+
+<section class="empty-state mt-4">
+    <h2>No active orders yet</h2>
+    <p>Start from the food listing page and use the Order button on a dish details page.</p>
+</section>

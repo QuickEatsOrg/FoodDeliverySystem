@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="FoodDelivery.API/FoodDelivery.API.csproj" />
+  <Project Path="FoodDelivery.MVC/FoodDelivery.MVC.csproj" Id="41111bb0-747f-47c2-a8ba-20c5fe05ad90" />
+  <Project Path="FoodDelivery.Tests/FoodDelivery.Tests.csproj" />
+</Solution>

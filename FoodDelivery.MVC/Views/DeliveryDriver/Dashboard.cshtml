@@ -1,0 +1,31 @@
+@model FoodDelivery.MVC.ViewModel.DriverDashboardViewModel
+
+@{
+    ViewData["Title"] = "Driver Dashboard";
+}
+
+<div class="dashboard-heading">
+    <div>
+        <p class="eyebrow">Delivery Driver</p>
+        <h1>@Model.DriverName</h1>
+    </div>
+    <a class="btn btn-primary" asp-action="AssignedDeliveries">Assigned deliveries</a>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 g-3">
+    @foreach (var delivery in Model.Deliveries)
+    {
+        <div class="col">
+            <div class="card h-100 menu-card" data-details-url="@Url.Action("Details", new { id = delivery.DeliveryId })" tabindex="0" role="link">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h2 class="h5">Delivery #@delivery.DeliveryId</h2>
+                        <span class="badge text-bg-warning">@delivery.Status</span>
+                    </div>
+                    <p class="text-muted mb-1">@delivery.Pickup</p>
+                    <p class="text-muted mb-0">@delivery.Dropoff</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

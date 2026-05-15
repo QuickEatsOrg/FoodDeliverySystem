@@ -1,0 +1,95 @@
+@model FoodDelivery.MVC.ViewModel.ManageMenuViewModel
+
+@{
+    ViewData["Title"] = "Manage Menu";
+}
+
+<h1>Manage Menu</h1>
+
+@if (TempData["SuccessMessage"] is string successMessage)
+{
+    <div class="alert alert-success">@successMessage</div>
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+
+<h2>Add Menu Item</h2>
+<form asp-action="CreateMenuItem" method="post" class="row g-3 mb-4">
+    <input type="hidden" asp-for="NewItem.RestaurantId" />
+    <div class="col-md-3">
+        <label asp-for="NewItem.ItemName" class="form-label"></label>
+        <input asp-for="NewItem.ItemName" class="form-control" />
+        <span asp-validation-for="NewItem.ItemName" class="text-danger"></span>
+    </div>
+    <div class="col-md-4">
+        <label asp-for="NewItem.ItemDescription" class="form-label"></label>
+        <input asp-for="NewItem.ItemDescription" class="form-control" />
+        <span asp-validation-for="NewItem.ItemDescription" class="text-danger"></span>
+    </div>
+    <div class="col-md-2">
+        <label asp-for="NewItem.ItemPrice" class="form-label"></label>
+        <input asp-for="NewItem.ItemPrice" class="form-control" />
+        <span asp-validation-for="NewItem.ItemPrice" class="text-danger"></span>
+    </div>
+    <div class="col-md-3 d-flex align-items-end">
+        <button type="submit" class="btn btn-primary">Add Item</button>
+    </div>
+</form>
+
+<h2>Existing Menu Items</h2>
+
+@if (!Model.MenuItems.Any())
+{
+    <p>No menu items found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MenuItems)
+            {
+                <tr>
+                    <form asp-action="EditMenuItem" method="post">
+                        <input type="hidden" name="restaurantId" value="@Model.RestaurantId" />
+                        <input type="hidden" name="ItemId" value="@item.ItemId" />
+                        <td>
+                            <input name="ItemName" value="@item.ItemName" class="form-control" required />
+                        </td>
+                        <td>
+                            <input name="ItemDescription" value="@item.ItemDescription" class="form-control" />
+                        </td>
+                        <td>
+                            <input name="ItemPrice" value="@item.ItemPrice" class="form-control" type="number" min="0.01" step="0.01" required />
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-secondary">Save</button>
+                        </td>
+                    </form>
+                    <td>
+                        <form asp-action="DeleteMenuItem" method="post">
+                            <input type="hidden" name="restaurantId" value="@Model.RestaurantId" />
+                            <input type="hidden" name="itemId" value="@item.ItemId" />
+                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
